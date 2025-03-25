@@ -167,10 +167,31 @@ li::before {
 
 .modality li {
     padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .modality li::before {
     content: none;
+}
+
+.modality i {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(66, 133, 244, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.modality li:hover i {
+    transform: scale(1.1);
+    background: rgba(66, 133, 244, 0.2);
 }
 
 .contact .button {
