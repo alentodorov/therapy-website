@@ -1,49 +1,46 @@
 # Therapy Website
 
-A minimal, responsive website for a psychotherapist and transformational coach. The website is designed to be easily maintainable and deployable to Cloudflare Pages.
+A minimal, responsive website for a psychotherapist and transformational coach. The website is designed to be easily maintainable and automatically published through GitHub.
 
-## Structure
+## How to Make Changes
 
-- `index.html` - Main content of the website
-- `styles.css` - All styling rules
-- `alena-todorov-life-coach-london.jpg` - Profile image
+1. Go to your GitHub repository at https://github.com/alentodorov/therapy-website
+2. Click on the `index.html` file
+3. Click the pencil icon (Edit this file) in the top-right corner
+4. Make your desired changes to the content
+5. At the bottom of the page, add a short description of your changes (e.g., "Updated contact information")
+6. Click the green "Commit changes" button
+7. Your changes will be automatically published to the live website within a few minutes
 
-## Maintenance
+## What You Can Edit
 
-To update the website content, simply edit the `index.html` file. The structure is organized into clear sections:
-- Header with profile
-- Introduction
-- Approach
+The website content is organized into clear sections in the `index.html` file:
+- Header with your profile information
+- Introduction and background
+- Your approach to therapy
 - Contact section
-- About section with qualifications and associations
+- About section with your qualifications and associations
 
-To modify the styling, edit the `styles.css` file. The CSS uses CSS variables for easy color scheme updates:
-```css
-:root {
-    --primary-color: #4285f4;
-    --text-color: #333;
-    --background-color: #fff;
-}
-```
+Common updates you might want to make:
+- Update text content
+- Add/modify qualifications
+- Update professional associations
+- Change contact information
+- Modify the consultation booking link
 
-## Deployment to Cloudflare Pages
+## Important Notes
 
-1. Create a GitHub repository and push these files to it
-2. Log in to your Cloudflare dashboard
-3. Go to Pages > Create a project
-4. Connect your GitHub repository
-5. Configure the build settings:
-   - Build command: Leave empty (no build required)
-   - Build output directory: Leave empty (files are in root)
-6. Deploy!
+- Don't modify the `styles.css` file unless you're familiar with CSS
+- Keep the file structure as is
+- Make sure to always push your changes to GitHub for them to go live
+- The website will automatically update within a few minutes after pushing
 
-## Adding Images
+## Need Help?
 
-1. The profile photo is named `alena-todorov-life-coach-london.jpg` in the root directory
-2. Make sure any replacement image is optimized for web (recommended size: 300x300px)
+If you need assistance with making changes or encounter any issues, please contact your web developer, and brother Alen Todorov.
 
-## Requirements
+## File Structure
 
-- No build tools or dependencies required
-- Pure HTML and CSS
-- Compatible with all modern browsers
+- `index.html` - Main content (this is the file you'll edit most often)
+- `styles.css` - Styling (avoid editing unless necessary)
+- `alena-todorov-life-coach-london.jpg` - Profile image
