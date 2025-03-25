@@ -173,6 +173,10 @@ li::before {
     content: none;
 }
 
+.contact .button {
+    margin-top: 2rem;
+}
+
 /* Floating shapes decoration */
 .container::before,
 .container::after {
