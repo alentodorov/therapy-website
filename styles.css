@@ -207,15 +207,20 @@ section:hover::before {
 
 .special-interests {
     grid-column: 8 / -1;
-    background: var(--accent-color);
-    color: white;
+    background: white;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
 }
 
 .special-interests h2,
 .special-interests h3,
 .special-interests p,
 .special-interests li {
-    color: white;
+    color: var(--primary-color);
+}
+
+.special-interests h2 {
+    color: var(--accent-color);
 }
 
 .how-i-can-help {
@@ -373,32 +378,58 @@ ul li:hover::before {
 .modality {
     list-style: none;
     padding: 0;
+    margin: 1.5rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
 }
 
 .modality li {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.25rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 184, 148, 0.1);
+    border-radius: 6px;
+    font-size: 1.125rem;
+    color: var(--accent-color);
     transition: all 0.3s ease;
-    border: 1px solid transparent;
 }
 
 .modality li:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 184, 148, 0.15);
+    transform: translateX(5px);
 }
 
-.modality li i {
-    font-size: 1.75rem;
+.modality i {
     color: var(--accent-color);
+    font-size: 1.25rem;
+}
+
+/* Session Types */
+.session-types {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.session-types li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid rgba(0, 184, 148, 0.2);
+}
+
+.session-types li:last-child {
+    border-bottom: none;
+}
+
+.session-types i {
+    color: var(--accent-color);
+    font-size: 1.25rem;
 }
 
 /* Accordion Improvements */
