@@ -34,6 +34,19 @@ body {
     gap: 2rem;
 }
 
+/* Gradient Animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 /* Typography */
 .container h1, .container h2, .container h3 {
     font-family: 'Fraunces', serif;
@@ -47,8 +60,14 @@ body {
     font-size: 4.5rem;
     letter-spacing: -0.03em;
     margin-top: 1rem;
-    line-height: 1;
-    background: linear-gradient(120deg, var(--primary-color), var(--accent-color));
+    line-height: 1.1;
+    background: linear-gradient(120deg, 
+        var(--primary-color) 0%,
+        var(--accent-color) 45%,
+        var(--accent-color) 55%,
+        var(--primary-color) 100%);
+    background-size: 200% auto;
+    animation: gradient 15s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -117,7 +136,7 @@ header {
 }
 
 .profile-image:hover {
-    transform: rotate(0deg) translateY(-10px);
+    transform: rotate(2deg);
 }
 
 .header-content {
