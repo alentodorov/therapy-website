@@ -731,7 +731,40 @@
             z-index: 2;
         }
         
+        .about-image-placeholder {
+            width: 100%;
+            height: 500px;
+            background-color: var(--light-gray);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(196, 93, 60, 0.1), rgba(38, 82, 20, 0.1));
+            z-index: 1;
+        }
+        
+        .about-image-icon {
+            font-size: 8rem;
+            color: rgba(38, 82, 20, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
         .about-image {
+            display: none;
             width: 100%;
             height: 500px;
             object-fit: cover;
@@ -891,7 +924,7 @@
                 font-size: 3rem;
             }
             
-            .about-image {
+            .about-image-placeholder {
                 height: 400px;
             }
         }
@@ -1311,13 +1344,45 @@
             margin-bottom: var(--spacing-lg);
         }
         
-        .approach-image {
+        .approach-image-placeholder {
             width: 100%;
-            height: 500px;
+            height: 450px;
+            background-color: var(--light-gray);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .approach-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(38, 82, 20, 0.1), rgba(196, 93, 60, 0.1));
+            z-index: 1;
+        }
+        
+        .approach-image-icon {
+            font-size: 8rem;
+            color: rgba(38, 82, 20, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .approach-image {
+            display: none;
+            width: 100%;
+            height: 450px;
             object-fit: cover;
             border-radius: 3px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s ease;
         }
         
         .image-accent {
@@ -1459,8 +1524,8 @@
                 margin-bottom: var(--spacing-lg);
             }
             
-            .approach-image {
-                height: 400px;
+            .approach-image-placeholder {
+                height: 350px;
             }
             
             .approach-experience {
@@ -2504,7 +2569,11 @@
             <div class="about-grid">
                 <div class="about-image-container">
                     <div class="about-image-wrapper">
-                        <img src="AT-profile.jpeg" alt="Alena Todorov portrait" class="about-image">
+                        <div class="about-image-placeholder">
+                            <div class="about-image-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="about-accent"></div>
                     <div class="about-location">
@@ -2801,7 +2870,11 @@
             <div class="approach-grid">
                 <div class="approach-image-container">
                     <div class="approach-image-wrapper">
-                        <img src="AT-profile.jpeg" alt="Alena Todorov in therapy session" class="approach-image">
+                        <div class="approach-image-placeholder">
+                            <div class="approach-image-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
                         <div class="image-accent"></div>
                     </div>
                     <div class="approach-experience">
