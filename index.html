@@ -7,7 +7,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-JH1798MB9Y');
     </script>
     <meta charset="UTF-8">
@@ -22,8 +21,24 @@
     <meta property="og:url" content="https://alenatodorov.com">
     <meta property="og:type" content="website">
     
-    <!-- Tachyons CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#666666',
+                        accent: '#38761D',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -32,287 +47,270 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Smooth Scroll -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.main-nav a');
-            
-            // Smooth scroll
-            navLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Debounce function
-            function debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
-            
-            // Highlight active section
-            const highlightNavigation = debounce(function() {
-                let scrollPosition = window.scrollY;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + sectionId) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, 100); // Debounce by 100ms
-
-            window.addEventListener('scroll', highlightNavigation, { passive: true });
-            highlightNavigation(); // Run on load
-        });
-    </script>
+    <!-- Custom styles for animations -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white text-gray-900 antialiased">
     <!-- Header -->
-    <header>
-        <nav class="main-nav">
-            <div class="container nav-container">
-                <a href="#" class="nav-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
-                    <img src="AT-profile.jpeg" alt="Alena Todorov" class="nav-logo-image">
-                    <span>Alena Todorov</span>
-                </a>
-                <ul>
-                    <li class="desktop-only"><a href="#approach">My Approach</a></li>
-                    <li class="desktop-only"><a href="#services">How I Help</a></li>
-                    <li class="desktop-only"><a href="#qualifications">Qualifications</a></li>
-                    <li><a href="#contact" class="contact-link">Contact</a></li>
-                </ul>
+    <header class="py-24 md:py-32">
+        <nav class="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-24">
+                    <a href="#" class="flex items-center space-x-3" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                        <img src="AT-profile.jpeg" alt="Alena Todorov" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-lg font-medium">Alena Todorov</span>
+                    </a>
+                    <!-- Mobile menu button -->
+                    <button class="md:hidden text-gray-500 hover:text-accent transition-colors" id="menuButton" aria-label="Toggle menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <!-- Desktop menu -->
+                    <ul class="hidden md:flex items-center space-x-8">
+                        <li><a href="#approach" class="hover:text-accent transition-colors">My Approach</a></li>
+                        <li><a href="#services" class="hover:text-accent transition-colors">How I Help</a></li>
+                        <li><a href="#qualifications" class="hover:text-accent transition-colors">Qualifications</a></li>
+                        <li><button class="bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors px-8 py-2" onclick="window.location.href='#contact'">Contact</button></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Mobile menu panel -->
+            <div class="md:hidden hidden bg-white border-t border-gray-100" id="mobileMenu">
+                <div class="px-4 py-3 space-y-3">
+                    <a href="#approach" class="block py-2 hover:text-accent transition-colors">My Approach</a>
+                    <a href="#services" class="block py-2 hover:text-accent transition-colors">How I Help</a>
+                    <a href="#qualifications" class="block py-2 hover:text-accent transition-colors">Qualifications</a>
+                    <button class="block py-2 text-accent" onclick="window.location.href='#contact'">Contact</button>
+                </div>
             </div>
         </nav>
-        <div class="container">
-            <div class="header-grid">
-                <div class="header-content" data-aos="fade-up">
-                    <h1>Alena Todorov</h1>
-                    <div class="header-subtitle">
-                        <h2>Psychotherapist & Coach</h2>
-                        <div class="header-location">
-                            <i class="fas fa-map-marker-alt"></i>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                <div class="text-center md:text-left">
+                    <h1 class="text-6xl md:text-7xl font-bold mb-6">Alena Todorov</h1>
+                    <div class="mb-8">
+                        <h2 class="text-4xl md:text-5xl font-semibold mb-4">Psychotherapist & Coach</h2>
+                        <div class="flex items-center justify-center md:justify-start space-x-2 text-secondary mb-2">
+                            <i class="fas fa-map-marker-alt text-accent"></i>
                             <span>East & Central London</span>
                         </div>
-                        <div class="header-qualifications">
-                            <i class="fas fa-award"></i>
+                        <div class="flex items-center justify-center md:justify-start space-x-2 text-secondary">
+                            <i class="fas fa-award text-accent"></i>
                             <span>MSc Psych, CTA-P, UKCP reg</span>
                         </div>
                     </div>
-                    <p class="header-description">Helping individuals and couples break patterns, overcome burnout, and rediscover themselves.</p>
-                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Book a Consultation</a>
+                    <p class="text-xl text-secondary mb-8 max-w-2xl">Helping individuals and couples break patterns, overcome burnout, and rediscover themselves.</p>
+                    <button class="bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors px-8 py-3" onclick="window.open('https://calendly.com/consultation-alena/initial-consultation')">Book a Consultation</button>
                 </div>
-                <img src="AT-profile.jpeg" alt="Professional headshot of Alena Todorov" class="profile-image" data-aos="fade-up">
+                <img src="AT-profile.jpeg" alt="Professional headshot of Alena Todorov" 
+                     class="hidden md:block w-full h-[600px] md:h-auto object-cover rounded-lg" data-aos="fade-up">
             </div>
         </div>
     </header>
 
     <!-- Intro Section -->
-    <section class="intro">
-        <div class="container">
-            <div class="intro-content" data-aos="fade-up">
-                <h2>Transform your relationships with yourself and others</h2>
-                <p>I help individuals and couples navigate relationship patterns, burnout, and identity challenges. Through a blend of psychotherapy and coaching, we'll work together to create lasting positive change.</p>
-                <div class="cta-buttons">
-                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Schedule consultation</a>
-                    <a href="mailto:contact@alenatodorov.com" class="button secondary">Email me</a>
+    <section class="bg-primary text-white py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h2 class="text-5xl md:text-6xl font-semibold mb-8">Transform your relationships with yourself and others</h2>
+            <p class="text-xl md:text-2xl mb-12 opacity-90">I help individuals and couples navigate relationship patterns, burnout, and identity challenges. Through a blend of psychotherapy and coaching, we'll work together to create lasting positive change.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                <button class="border-2 border-white bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors px-8 py-3" onclick="window.open('https://calendly.com/consultation-alena/initial-consultation')">Schedule consultation</button>
+                <button class="border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-primary transition-colors px-8 py-3" onclick="window.location.href='mailto:contact@alenatodorov.com'">Email me</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Approach Section -->
+    <section id="approach" class="py-24 md:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-semibold text-center mb-16" data-aos="fade-up">My approach</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-sm" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-heart text-accent text-2xl mr-4"></i>
+                        <h3 class="text-2xl font-semibold">Transactional Analysis</h3>
+                    </div>
+                    <p class="text-lg text-secondary">Understand how your past experiences shape your present relationships and behaviors. Through TA, we'll explore unconscious patterns and help you make more conscious choices.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-brain text-accent text-2xl mr-4"></i>
+                        <h3 class="text-2xl font-semibold">Transformational Coaching</h3>
+                    </div>
+                    <p class="text-lg text-secondary">Focus on growth and possibility. We'll work together to clarify your values, strengthen your sense of self, and create actionable steps toward meaningful change.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Approach Section -->
-    <section class="approach" id="approach">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My approach</h2>
-            <div class="approach-content">
-                <div class="approach-card" data-aos="fade-up">
-                    <div class="approach-card-header">
-                        <i class="fas fa-heart approach-icon"></i>
-                        <h3>Transactional Analysis</h3>
+    <!-- More Details Section -->
+    <section class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-semibold mb-16" data-aos="fade-up">More details</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Clients Column -->
+                <div data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold mb-8">Clients</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center p-6 bg-gray-50 rounded-lg">
+                            <i class="fas fa-user text-accent text-xl mr-4"></i>
+                            <span>Individuals</span>
+                        </div>
+                        
+                        <div class="flex items-center p-6 bg-gray-50 rounded-lg">
+                            <i class="fas fa-heart text-accent text-xl mr-4"></i>
+                            <span>Couples</span>
+                        </div>
+                        
+                        <div class="flex items-center p-6 bg-gray-50 rounded-lg">
+                            <i class="fas fa-users text-accent text-xl mr-4"></i>
+                            <span>Group/Family</span>
+                        </div>
                     </div>
-                    <p>Understand how your past experiences shape your present relationships and behaviors. Through TA, we'll explore unconscious patterns and help you make more conscious choices.</p>
                 </div>
-                <div class="approach-card" data-aos="fade-up">
-                    <div class="approach-card-header">
-                        <i class="fas fa-brain approach-icon"></i>
-                        <h3>Transformational Coaching</h3>
+
+                <!-- Session Types Column -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-semibold mb-8">Session types</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center p-6 bg-gray-50 rounded-lg">
+                            <i class="fas fa-video text-accent text-xl mr-4"></i>
+                            <span>Online (Zoom)</span>
+                        </div>
+                        
+                        <div class="flex items-center p-6 bg-gray-50 rounded-lg">
+                            <i class="fas fa-map-marker-alt text-accent text-xl mr-4"></i>
+                            <span>In-person (East and Central London)</span>
+                        </div>
                     </div>
-                    <p>Focus on growth and possibility. We'll work together to clarify your values, strengthen your sense of self, and create actionable steps toward meaningful change.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Details Section -->
-    <section class="details" >
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">More details</h2>
-            <div class="details-grid">
-                <div class="client-types" data-aos="fade-up">
-                    <h3>Clients</h3>
-                    <ul class="modality">
-                        <li><i class="fas fa-user" aria-hidden="true"></i> Individuals</li>
-                        <li><i class="fas fa-heart" aria-hidden="true"></i> Couples</li>
-                        <li><i class="fas fa-users" aria-hidden="true"></i> Group/Family</li>
-                    </ul>
-                </div>
-                <div class="session-info" data-aos="fade-up">
-                    <h3>Session types</h3>
-                    <ul class="session-types">
-                        <li><i class="fas fa-video" aria-hidden="true"></i> Online (Zoom)</li>
-                        <li><i class="fas fa-home" aria-hidden="true"></i> In-person (East and Central London)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section> 
 
     <!-- Services Section -->
-    <section class="services"id="services">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">How I can help</h2>
-            <div class="accordion-items">
-                <article class="accordion-item" data-aos="fade-up">
-                    <h3 class="accordion-header">Relationship patterns and emotional closeness</h3>
-                    <div class="accordion-body">
-                        <p>If you find yourself stuck in repeating patterns—emotional distance, conflict, or fear of intimacy—I can help you understand the deeper dynamics at play. Using a relational, TA-based approach, we explore early experiences and scripts that shape how you connect and work toward building healthier, more secure relationships.</p>
+    <section id="services" class="py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-semibold text-center mb-16" data-aos="fade-up">How I can help</h2>
+            <div class="space-y-4" data-aos="fade-up">
+                <details class="bg-white p-6 rounded-lg shadow-sm group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-2xl font-medium text-secondary">Relationship patterns and emotional closeness</h3>
+                        <i class="fas fa-plus text-accent transition-transform group-open:rotate-45"></i>
+                    </summary>
+                    <div class="mt-4 text-secondary">
+                        <p class="text-lg">If you find yourself stuck in repeating patterns—emotional distance, conflict, or fear of intimacy—I can help you understand the deeper dynamics at play. Using a relational, TA-based approach, we explore early experiences and scripts that shape how you connect and work toward building healthier, more secure relationships.</p>
                     </div>
-                </article>
+                </details>
 
-                <article class="accordion-item" data-aos="fade-up">
-                    <h3 class="accordion-header">Burnout, pressure and role fatigue</h3>
-                    <div class="accordion-body">
-                        <p>If you're feeling stretched thin or constantly on edge, therapy offers a space to slow down and reconnect. Together, we explore the roles you've taken on—at work, in your family, or both—and gently shift the patterns that lead to emotional exhaustion, perfectionism, and loss of self.</p>
+                <details class="bg-white p-6 rounded-lg shadow-sm group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-2xl font-medium text-secondary">Burnout, pressure and role fatigue</h3>
+                        <i class="fas fa-plus text-accent transition-transform group-open:rotate-45"></i>
+                    </summary>
+                    <div class="mt-4 text-secondary">
+                        <p class="text-lg">If you're feeling stretched thin or constantly on edge, therapy offers a space to slow down and reconnect. Together, we explore the roles you've taken on—at work, in your family, or both—and gently shift the patterns that lead to emotional exhaustion, perfectionism, and loss of self.</p>
                     </div>
-                </article>
+                </details>
 
-                <article class="accordion-item" data-aos="fade-up">
-                    <h3 class="accordion-header">Neurodiversity and self-acceptance</h3>
-                    <div class="accordion-body">
-                        <p>Whether you're diagnosed or self-identifying as neurodivergent (ADHD, Autism, Highly Sensitive, or other), I provide a supportive, affirming space to process your experience. We explore how masking, emotional regulation, or being misunderstood may have shaped your self-image—and how to reclaim your strengths and identity.</p>
+                <details class="bg-white p-6 rounded-lg shadow-sm group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-2xl font-medium text-secondary">Neurodiversity and self-acceptance</h3>
+                        <i class="fas fa-plus text-accent transition-transform group-open:rotate-45"></i>
+                    </summary>
+                    <div class="mt-4 text-secondary">
+                        <p class="text-lg">Whether you're diagnosed or self-identifying as neurodivergent (ADHD, Autism, Highly Sensitive, or other), I provide a supportive, affirming space to process your experience. We explore how masking, emotional regulation, or being misunderstood may have shaped your self-image—and how to reclaim your strengths and identity.</p>
                     </div>
-                </article>
+                </details>
 
-                <article class="accordion-item" data-aos="fade-up">
-                    <h3 class="accordion-header">Cultural identity, migration and belonging</h3>
-                    <div class="accordion-body">
-                        <p>Moving between cultures can impact your sense of self and belonging. Drawing from my own experience and training, I help you navigate cultural transitions, identity questions, and finding your authentic voice across different contexts.</p>
+                <details class="bg-white p-6 rounded-lg shadow-sm group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-2xl font-medium text-secondary">Cultural identity, migration and belonging</h3>
+                        <i class="fas fa-plus text-accent transition-transform group-open:rotate-45"></i>
+                    </summary>
+                    <div class="mt-4 text-secondary">
+                        <p class="text-lg">Moving between cultures can impact your sense of self and belonging. Drawing from my own experience and training, I help you navigate cultural transitions, identity questions, and finding your authentic voice across different contexts.</p>
                     </div>
-                </article>
+                </details>
             </div>
         </div>
     </section>
 
     <!-- Qualifications Section -->
-    <section class="qualifications-section" id="qualifications">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Training and qualifications</h2>
-            <div class="qualifications-content" data-aos="fade-up">
-                <p class="mb3">Over 14 years' experience in psychotherapy, coaching, organisational development, and mental health</p>
-                <ul>
-                    <li>
-                        <i class="fas fa-award"></i>
-                        <div>
-                            <strong>Full Clinical Psychotherapist</strong>
-                            <span>UK Council for Psychotherapy (UKCP)</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-certificate"></i>
-                        <div>
-                            <strong>Certified in Transactional Analysis - Psychotherapy</strong>
-                            <span>International Transactional Analysis Association (ITAA via IBOC)</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-comments"></i>
-                        <div>
-                            <strong>Transformational Coach</strong>
-                            <span>Animas Coaching Centre (ICF Accredited)</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-brain"></i>
-                        <div>
-                            <strong>Member and Researcher</strong>
-                            <span>Association of Industrial and Organisational Psychology (APIO)</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-graduation-cap"></i>
-                        <div>
-                            <strong>Advanced Diploma in Counselling and Psychotherapy in TA</strong>
-                            <span>TA East London Counselling Institute</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-comments"></i>
-                        <div>
-                            <strong>Diploma in Transformational Coaching</strong>
-                            <span>Animas Centre for Coaching</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-university"></i>
-                        <div>
-                            <strong>MSc in Organisational Psychology</strong>
-                            <span>West University of Timisoara, Sociology and Psychology Faculty</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-brain"></i>
-                        <div>
-                            <strong>BSc in Psychology</strong>
-                            <span>West University of Timisoara, Sociology and Psychology Faculty</span>
-                        </div>
-                    </li>
-                </ul>
+    <section id="qualifications" class="bg-gray-50 py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-semibold text-center mb-16" data-aos="fade-up">Training and qualifications</h2>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="text-xl text-secondary">Over 14 years' experience in psychotherapy, coaching, organisational development, and mental health</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-content" data-aos="fade-up">
-                <h2 class="section-title">Get in touch</h2>
-                <p>If you're thinking about therapy but not quite sure, that's okay. Whether for yourself or your relationship, we can explore what's going on and what you need. Feel free to get in touch or book an initial consultation.</p>
-                <div class="cta-buttons">
-                    <a href="mailto:contact@alenatodorov.com" class="button secondary">Email me</a>
-                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Book a Consultation</a>
+            <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up">
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-award text-accent text-xl mt-1"></i>
+                        <div>
+                            <strong class="block text-xl mb-1">Full Clinical Psychotherapist</strong>
+                            <span class="text-secondary">UK Council for Psychotherapy (UKCP)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-certificate text-accent text-xl mt-1"></i>
+                        <div>
+                            <strong class="block text-xl mb-1">Certified in Transactional Analysis - Psychotherapy</strong>
+                            <span class="text-secondary">International Transactional Analysis Association (ITAA via IBOC)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-graduation-cap text-accent text-xl mt-1"></i>
+                        <div>
+                            <strong class="block text-xl mb-1">MSc in Integrative Psychotherapy</strong>
+                            <span class="text-secondary">Metanoia Institute & Middlesex University</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <i class="fas fa-brain text-accent text-xl mt-1"></i>
+                        <div>
+                            <strong class="block text-xl mb-1">Certified Coach</strong>
+                            <span class="text-secondary">International Coach Federation (ICF)</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-semibold mb-8" data-aos="fade-up">Get in touch</h2>
+            <p class="text-xl md:text-2xl text-secondary mb-12 max-w-3xl mx-auto" data-aos="fade-up">Ready to explore working together? Book a free 15-minute initial consultation to discuss your needs and see if we're a good fit.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6" data-aos="fade-up">
+                <button class="border-2 border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition-colors px-8 py-3" onclick="window.location.href='mailto:contact@alenatodorov.com'">Email me</button>
+                <button class="border-2 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors px-8 py-3" onclick="window.open('https://calendly.com/consultation-alena/initial-consultation')">Book a Consultation</button>
+            </div>
+        </div>
+    </section>
+
     <script>
-        // Initialize AOS after DOM is loaded
+        // Initialize AOS
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init({
                 duration: 800,
@@ -321,24 +319,98 @@
             });
         });
 
-        // Accordion functionality
+        // Accordion functionality with smooth animation
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const body = header.nextElementSibling;
-                const isOpen = header.classList.contains('active');
+                const isOpen = header.parentElement.classList.contains('active');
                 
                 // Close all accordion items
-                document.querySelectorAll('.accordion-header').forEach(h => {
-                    h.classList.remove('active');
-                    h.nextElementSibling.style.maxHeight = null;
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    item.classList.remove('active');
+                    const itemBody = item.querySelector('.accordion-body');
+                    itemBody.style.maxHeight = null;
                 });
                 
                 // Open clicked item if it was closed
                 if (!isOpen) {
-                    header.classList.add('active');
+                    header.parentElement.classList.add('active');
                     body.style.maxHeight = body.scrollHeight + "px";
                 }
             });
+        });
+
+        // Smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // Active section highlighting
+        const observerOptions = {
+            root: null,
+            rootMargin: '-80px 0px -20% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('a[href^="#"]').forEach(link => {
+                        link.classList.remove('text-accent');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('text-accent');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const iconElement = menuButton.querySelector('i');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            iconElement.classList.toggle('fa-bars', !isOpen);
+            iconElement.classList.toggle('fa-times', isOpen);
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                iconElement.classList.add('fa-bars');
+                iconElement.classList.remove('fa-times');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+                iconElement.classList.add('fa-bars');
+                iconElement.classList.remove('fa-times');
+            }
         });
     </script>
 </body>
