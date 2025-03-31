@@ -146,6 +146,7 @@ h1 {
     justify-content: center;
     gap: var(--spacing-sm);
     line-height: 1;
+    margin-top: var(--spacing-sm);
 }
 
 .header-qualifications i {
