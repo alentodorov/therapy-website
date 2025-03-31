@@ -693,6 +693,236 @@
             }
         }
         
+        /* About Me Section Styles */
+        .about {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(196, 93, 60, 0.03);
+            z-index: 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-image-container {
+            position: relative;
+        }
+        
+        .about-image-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 3px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-accent {
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(38, 82, 20, 0.1);
+            border-radius: 3px;
+            z-index: 1;
+        }
+        
+        .about-location {
+            position: absolute;
+            bottom: 30px;
+            right: -30px;
+            background-color: white;
+            border-radius: 3px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            z-index: 3;
+        }
+        
+        .location-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .location-icon i {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+        }
+        
+        .location-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .location-from {
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+        }
+        
+        .location-now {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .about-eyebrow {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .about-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), var(--terracotta));
+            border-radius: 3px;
+        }
+        
+        .about-text {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .about-text p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .about-values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .value-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .value-icon i {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+        }
+        
+        .value-item span {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .about-image-container {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .about-title {
+                font-size: 3rem;
+            }
+            
+            .about-image {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+            }
+            
+            .about-location {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: -50px;
+                width: 80%;
+                z-index: 3;
+            }
+            
+            .about-accent {
+                display: none;
+            }
+            
+            .about-values {
+                justify-content: center;
+            }
+        }
+        
         /* Tailored Support Section Styles */
         .support {
             padding: var(--spacing-xl) 0;
@@ -2181,6 +2411,7 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul>
+                <li><a href="#about">About Me</a></li>
                 <li><a href="#approach">My Approach</a></li>
                 <li><a href="#details">Services</a></li>
                 <li><a href="#services">How I Help</a></li>
@@ -2261,6 +2492,69 @@
                         <blockquote>
                             Therapy is a collaborative journey toward understanding yourself more deeply and living more authentically.
                         </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Me Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-container">
+                    <div class="about-image-wrapper">
+                        <img src="AT-profile.jpeg" alt="Alena Todorov portrait" class="about-image">
+                    </div>
+                    <div class="about-accent"></div>
+                    <div class="about-location">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="location-text">
+                            <span class="location-from">From: Timișoara, Romania</span>
+                            <span class="location-now">Now: London, UK</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <span class="about-eyebrow">My Story</span>
+                    <h2 class="about-title">About Me</h2>
+                    
+                    <div class="about-text">
+                        <p>My journey as a psychotherapist began 15 years ago in the city of Timișoara, Romania. Like many Londoners, I wasn't born here, but I've grown to deeply align with the city's values of openness, diversity, and growth.</p>
+                        
+                        <p>Over the past decade, since moving to the UK, I've worked within organisations in roles focused on organisational psychology, learning and development. Along the way, I also trained as a coach and completed my Transactional Analysis (TA) certification here in the UK.</p>
+                        
+                        <p>Whether you're navigating the complexities of adapting to a new culture or you feel deeply rooted in this one, I can meet you where you are. This work is about creating space — space for your experiences, your transitions, and your truth.</p>
+                    </div>
+                    
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <span>Empathy</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <span>Growth</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-globe-europe"></i>
+                            </div>
+                            <span>Diversity</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <span>Authenticity</span>
+                        </div>
                     </div>
                 </div>
             </div>
