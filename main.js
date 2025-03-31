@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initMobileMenu();
   initDetailsAnimation();
+  initAccordion();
 });
 
 /**
@@ -166,4 +167,33 @@ const initDetailsAnimation = () => {
       });
     }
   });
+};
+
+/**
+ * Initialize accordion functionality for the services section
+ */
+const initAccordion = () => {
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+  
+  if (accordionHeaders.length > 0) {
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const body = header.nextElementSibling;
+        const isActive = header.classList.contains('active');
+        
+        // Close all accordion items
+        document.querySelectorAll('.accordion-header').forEach(h => {
+          h.classList.remove('active');
+          const b = h.nextElementSibling;
+          if (b) b.style.maxHeight = null;
+        });
+        
+        // Open clicked item if it was closed
+        if (!isActive) {
+          header.classList.add('active');
+          if (body) body.style.maxHeight = body.scrollHeight + "px";
+        }
+      });
+    });
+  }
 };

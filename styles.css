@@ -315,10 +315,6 @@ h1 {
     color: var(--accent-color);
 }
 
-.main-nav ul a.active {
-    /* font-weight: 600; */
-}
-
 /* Sections */
 section {
     padding: var(--spacing-xxl) 0;
@@ -687,9 +683,6 @@ ul {
         display: none;
     }
 
-    .main-nav {
-        /* right: var(--spacing-md); */
-    }
 
     header {
         padding: var(--spacing-md) 0;
