@@ -20,17 +20,69 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Smooth Scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.main-nav a');
+            
+            // Smooth scroll
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Highlight active section
+            function highlightNavigation() {
+                let scrollPosition = window.scrollY;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightNavigation);
+            highlightNavigation(); // Run on load
+        });
+    </script>
 </head>
 <body>
     <!-- Header -->
     <header>
+        <nav class="main-nav">
+            <div class="container nav-container">
+                <a href="#" class="nav-logo">Alena Todorov</a>
+                <ul>
+                    <li class="desktop-only"><a href="#approach">My Approach</a></li>
+                    <li class="desktop-only"><a href="#services">How I Help</a></li>
+                    <li class="desktop-only"><a href="#qualifications">Qualifications</a></li>
+                    <li><a href="#contact" class="contact-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <div class="header-grid">
                 <div class="header-content" data-aos="fade-up">
                     <h1>Alena Todorov</h1>
                     <p class="subtitle">Psychotherapist & Coach</p>
                     <p class="subtitle">East & Central London</p>
-                    <p class="qualifications"><i class="fas fa-certificate"></i> MSc Psych, CTA-P, UKCP reg</p>
+                    <p class="header-qualifications"><i class="fas fa-certificate"></i> MSc Psych, CTA-P, UKCP reg</p>
                 </div>
                 <img src="AT-profile.jpeg" alt="Professional headshot of Alena Todorov" class="profile-image" data-aos="fade-up">
             </div>
@@ -52,16 +104,22 @@
     </section>
 
     <!-- Approach Section -->
-    <section class="approach">
+    <section class="approach" id="approach">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">My approach</h2>
             <div class="approach-content">
                 <div class="approach-card" data-aos="fade-up">
-                    <h3>Transactional Analysis</h3>
+                    <div class="approach-card-header">
+                        <i class="fas fa-heart approach-icon"></i>
+                        <h3>Transactional Analysis</h3>
+                    </div>
                     <p>Understand how your past experiences shape your present relationships and behaviors. Through TA, we'll explore unconscious patterns and help you make more conscious choices.</p>
                 </div>
                 <div class="approach-card" data-aos="fade-up">
-                    <h3>Transformational Coaching</h3>
+                    <div class="approach-card-header">
+                        <i class="fas fa-brain approach-icon"></i>
+                        <h3>Transformational Coaching</h3>
+                    </div>
                     <p>Focus on growth and possibility. We'll work together to clarify your values, strengthen your sense of self, and create actionable steps toward meaningful change.</p>
                 </div>
             </div>
@@ -69,7 +127,7 @@
     </section>
     
     <!-- Details Section -->
-    <section class="details">
+    <section class="details" id="services">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">More details</h2>
             <div class="details-grid">
@@ -129,26 +187,68 @@
     </section>
 
     <!-- Qualifications Section -->
-    <section class="qualifications">
+    <section class="qualifications-section" id="qualifications">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Training, qualifications and experience</h2>
-            <div class="qualifications-content">
-                <p class="mb3">Over 14 years’ experience in psychotherapy, coaching, organisational development, and mental health</p>
+            <div class="qualifications-content" data-aos="fade-up">
+                <p class="mb3">Over 14 years' experience in psychotherapy, coaching, organisational development, and mental health</p>
                 <ul>
-                    <li><strong>Full Clinical Psychotherapist</strong>, UK Council for Psychotherapy (UKCP)</li>
-                    <li><strong>Certified in Transactional Analysis - Psychotherapy</strong>, International Transactional Analysis Association (ITAA via IBOC)</li>
-                    <li><strong>Advanced Diploma in Counselling and Psychotherapy in TA</strong>, TA East London Counselling Institute</li>
-                    <li><strong>Diploma in Transformational Coaching</strong>, Animas Centre for Coaching</li>
-                    <li><strong>Certificate in Personal Coaching</strong>, The Coaching Academy</li>
-                    <li><strong>MSc in Organisational Psychology</strong>, West University of Timisoara, Sociology and Psychology Faculty</li>
-                    <li><strong>BSc in Psychology</strong>, West University of Timisoara, Sociology and Psychology Faculty</li>
+                    <li>
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <strong>Full Clinical Psychotherapist</strong>
+                            <span>UK Council for Psychotherapy (UKCP)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-certificate"></i>
+                        <div>
+                            <strong>Certified in Transactional Analysis - Psychotherapy</strong>
+                            <span>International Transactional Analysis Association (ITAA via IBOC)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <strong>Advanced Diploma in Counselling and Psychotherapy in TA</strong>
+                            <span>TA East London Counselling Institute</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-comments"></i>
+                        <div>
+                            <strong>Diploma in Transformational Coaching</strong>
+                            <span>Animas Centre for Coaching</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <strong>Certificate in Personal Coaching</strong>
+                            <span>The Coaching Academy</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <strong>MSc in Organisational Psychology</strong>
+                            <span>West University of Timisoara, Sociology and Psychology Faculty</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-brain"></i>
+                        <div>
+                            <strong>BSc in Psychology</strong>
+                            <span>West University of Timisoara, Sociology and Psychology Faculty</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <div class="contact-content" data-aos="fade-up">
                 <h2 class="section-title">Get in touch</h2>
