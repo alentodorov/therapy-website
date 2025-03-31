@@ -1,181 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JH1798MB9Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JH1798MB9Y');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Alena Todorov - Professional Psychotherapist and Coach offering individual, couple, and group therapy in London and online">
-    <meta name="keywords" content="psychotherapy, coaching, therapy, counseling, London, online therapy, transactional analysis">
-    <meta name="author" content="Alena Todorov">
-    <title>Alena Todorov - Psychotherapist and Coach</title>
+    <title>Alena Todorov - Psychotherapist in London</title>
+    <meta name="description" content="Psychotherapist & Coach in London helping individuals and couples navigate relationship patterns, burnout, and identity challenges.">
     
-    <!-- Stylesheets -->
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Alena Todorov - Psychotherapist & Coach">
+    <meta property="og:description" content="Transform your relationships with yourself and others. Specializing in relationship patterns, burnout, and identity challenges in London.">
+    <meta property="og:image" content="og.png">
+    <meta property="og:url" content="https://alenatodorov.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Tachyons CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom JavaScript -->
+    <script src="main.js" defer></script>
 </head>
-<body x-data="{ menuOpen: false }">
-    <main class="container">
-        <!-- Header Section -->
-        <header data-aos="fade-down">
-            <img src="AT-profile.jpeg" alt="Professional headshot of Alena Todorov" class="profile-image" loading="lazy">
-            <div class="header-content">
-                <h1>Alena Todorov</h1>
-                <p class="subtitle">Psychotherapist and Coach</p>
-                <p class="subtitle">(MSc Psych, CTA-P, UKCP reg)</p>
-            </div>
-        </header>
-
-        <!-- Introduction Section -->
-        <section class="intro" data-aos="fade-up" data-aos-delay="200">
-            <p>I’m a Psychotherapist, Transactional Analyst, Coach, and Organisational Psychologist. I support adults and couples who feel overwhelmed, disconnected, or stuck in cycles they can’t quite shift—whether in their relationships, their work, or within themselves.</p>
-            <p>With a background in psychotherapy, coaching, adult learning, organisational psychology, and neurodiversity, I bring a holistic, down-to-earth approach to each session. Whether you're navigating anxiety, burnout, identity struggles, or relationship challenges, I tailor our work to support your growth in a way that feels grounded, respectful, and human.</p>
-            <div class="cta-buttons">
-                <a href="https://calendly.com/consultation-alena/initial-consultation" class="button" data-aos="fade-up">Schedule consultation</a>
-                <a href="mailto:contact@alenatodorov.com" class="button secondary" data-aos="fade-up">Email me</a>
-            </div>
-        </section>
-
-        <!-- Approach Section -->
-        <section class="approach" data-aos="fade-up">
-            <h2>My approach</h2>
-            <div class="approach-content">
-                <p class="mb3">I combine Transactional Analysis and Transformational Coaching to support deep, lasting change.</p>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="main-nav">
+            <div class="container nav-container">
+                <a href="#" class="nav-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                    <img src="AT-profile.jpeg" alt="Alena Todorov" class="nav-logo-image">
+                    <span>Alena Todorov</span>
+                </a>
                 <ul>
-                    <li><strong>Transactional Analysis (TA)</strong> helps you become more aware of how your thoughts, feelings, and behaviours are shaped by past experiences. By bringing unconscious patterns into awareness, you can make more informed choices, respond rather than react, and build more authentic relationships—with yourself and others.</li>
-                    <li><strong>Transformational Coaching</strong> focuses on growth, possibility, and action. It’s about helping you reconnect with your strengths, clarify what matters most, and step into the life you want to lead—with confidence, purpose, and clarity.</li>
+                    <li class="desktop-only"><a href="#approach">My Approach</a></li>
+                    <li class="desktop-only"><a href="#services">How I Help</a></li>
+                    <li class="desktop-only"><a href="#qualifications">Qualifications</a></li>
+                    <li><a href="#contact" class="contact-link">Contact</a></li>
                 </ul>
             </div>
-        </section>
-        
-        <!-- Details Section -->
-        <section class="special-interests" data-aos="fade-up">
-            <h2>More details</h2>
-            
-            <div class="client-types">
-                <h3 class="mt1">Clients</h3>
-                <ul class="modality">
-                    <li><i class="fas fa-user" aria-hidden="true"></i> Individuals</li>
-                    <li><i class="fas fa-heart" aria-hidden="true"></i> Couples</li>
-                    <li><i class="fas fa-users" aria-hidden="true"></i> Group/Family</li>
-                </ul>
+        </nav>
+        <div class="container">
+            <div class="header-grid">
+                <div class="header-content" data-aos="fade-up">
+                    <h1>Alena Todorov</h1>
+                    <div class="header-subtitle">
+                        <h2>Psychotherapist & Coach</h2>
+                        <div class="header-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>East & Central London</span>
+                        </div>
+                        <div class="header-qualifications">
+                            <i class="fas fa-award"></i>
+                            <span>MSc Psych, CTA-P, UKCP reg</span>
+                        </div>
+                    </div>
+                    <p class="header-description">Helping individuals and couples break patterns, overcome burnout, and rediscover themselves.</p>
+                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Book a Consultation</a>
+                </div>
+                <img src="AT-profile.jpeg" alt="Professional headshot of Alena Todorov" class="profile-image" data-aos="fade-up">
             </div>
-            
-            <div class="session-info">
-                <h3>Session types</h3>
-                <ul class="session-types">
-                    <li><i class="fas fa-video" aria-hidden="true"></i> Online (Zoom)</li>
-                    <li><i class="fas fa-home" aria-hidden="true"></i> In-person (East and Central London)</li>
-                </ul>
-            </div>
-        </section> 
+        </div>
+    </header>
 
-        <!-- Services Section -->
-        <section class="how-i-can-help" data-aos="fade-up">
-            <h2>How I can help</h2>
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content" data-aos="fade-up">
+                <h2>Transform your relationships with yourself and others</h2>
+                <p>I help individuals and couples navigate relationship patterns, burnout, and identity challenges. Through a blend of psychotherapy and coaching, we'll work together to create lasting positive change.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Schedule consultation</a>
+                    <a href="mailto:contact@alenatodorov.com" class="button secondary">Email me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="approach" id="approach">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My approach</h2>
+            <div class="approach-content">
+                <div class="approach-card" data-aos="fade-up">
+                    <div class="approach-card-header">
+                        <i class="fas fa-heart approach-icon"></i>
+                        <h3>Transactional Analysis</h3>
+                    </div>
+                    <p>Understand how your past experiences shape your present relationships and behaviors. Through TA, we'll explore unconscious patterns and help you make more conscious choices.</p>
+                </div>
+                <div class="approach-card" data-aos="fade-up">
+                    <div class="approach-card-header">
+                        <i class="fas fa-brain approach-icon"></i>
+                        <h3>Transformational Coaching</h3>
+                    </div>
+                    <p>Focus on growth and possibility. We'll work together to clarify your values, strengthen your sense of self, and create actionable steps toward meaningful change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Details Section -->
+    <section class="details" >
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">More details</h2>
+            <div class="details-grid">
+                <div class="client-types" data-aos="fade-up">
+                    <h3>Clients</h3>
+                    <ul class="modality">
+                        <li><i class="fas fa-user" aria-hidden="true"></i> Individuals</li>
+                        <li><i class="fas fa-heart" aria-hidden="true"></i> Couples</li>
+                        <li><i class="fas fa-users" aria-hidden="true"></i> Group/Family</li>
+                    </ul>
+                </div>
+                <div class="session-info" data-aos="fade-up">
+                    <h3>Session types</h3>
+                    <ul class="session-types">
+                        <li><i class="fas fa-video" aria-hidden="true"></i> Online (Zoom)</li>
+                        <li><i class="fas fa-home" aria-hidden="true"></i> In-person (East and Central London)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- Services Section -->
+    <section class="services"id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">How I can help</h2>
             <div class="accordion-items">
-                <article class="accordion-item">
+                <article class="accordion-item" data-aos="fade-up">
                     <h3 class="accordion-header">Relationship patterns and emotional closeness</h3>
                     <div class="accordion-body">
                         <p>If you find yourself stuck in repeating patterns—emotional distance, conflict, or fear of intimacy—I can help you understand the deeper dynamics at play. Using a relational, TA-based approach, we explore early experiences and scripts that shape how you connect and work toward building healthier, more secure relationships.</p>
                     </div>
                 </article>
 
-                <article class="accordion-item">
+                <article class="accordion-item" data-aos="fade-up">
                     <h3 class="accordion-header">Burnout, pressure and role fatigue</h3>
                     <div class="accordion-body">
-                        <p>If you're feeling stretched thin or constantly on edge, therapy offers a space to slow down and reconnect. Together, we explore the roles you’ve taken on—at work, in your family, or both—and gently shift the patterns that lead to emotional exhaustion, perfectionism, and loss of self.</p>
+                        <p>If you're feeling stretched thin or constantly on edge, therapy offers a space to slow down and reconnect. Together, we explore the roles you've taken on—at work, in your family, or both—and gently shift the patterns that lead to emotional exhaustion, perfectionism, and loss of self.</p>
                     </div>
                 </article>
 
-                <article class="accordion-item">
+                <article class="accordion-item" data-aos="fade-up">
                     <h3 class="accordion-header">Neurodiversity and self-acceptance</h3>
                     <div class="accordion-body">
                         <p>Whether you're diagnosed or self-identifying as neurodivergent (ADHD, Autism, Highly Sensitive, or other), I provide a supportive, affirming space to process your experience. We explore how masking, emotional regulation, or being misunderstood may have shaped your self-image—and how to reclaim your strengths and identity.</p>
                     </div>
                 </article>
 
-                <article class="accordion-item">
+                <article class="accordion-item" data-aos="fade-up">
                     <h3 class="accordion-header">Cultural identity, migration and belonging</h3>
                     <div class="accordion-body">
-                        <p>If you’ve lived between cultures, languages, or countries, you may carry complex questions about identity and belonging. Therapy offers space to explore these themes with nuance, helping you integrate your story, make sense of dislocation, and feel more at home in yourself.</p>
-                    </div>
-                </article>
-
-                <article class="accordion-item">
-                    <h3 class="accordion-header">Low self-esteem and inner criticism</h3>
-                    <div class="accordion-body">
-                        <p>When your inner voice is critical, harsh, or never satisfied, it can impact every part of your life. I help you explore where that voice came from and how to transform it. Using a compassionate, trauma-informed approach, we work toward a more grounded and accepting sense of self.</p>
+                        <p>Moving between cultures can impact your sense of self and belonging. Drawing from my own experience and training, I help you navigate cultural transitions, identity questions, and finding your authentic voice across different contexts.</p>
                     </div>
                 </article>
             </div>
-        </section>
-        
-        <!-- Qualifications Section -->
-        <section class="about" data-aos="fade-up">
-            <h2>Training, qualifications and experience</h2>
-            <div class="qualifications">
-                <p class="mb3">Over 14 years’ experience in psychotherapy, coaching, organisational development, and mental health</p>
+        </div>
+    </section>
+
+    <!-- Qualifications Section -->
+    <section class="qualifications-section" id="qualifications">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Training and qualifications</h2>
+            <div class="qualifications-content" data-aos="fade-up">
+                <p class="mb3">Over 14 years' experience in psychotherapy, coaching, organisational development, and mental health</p>
                 <ul>
-                    <li><strong>Full Clinical Psychotherapist</strong>, UK Council for Psychotherapy (UKCP)</li>
-                    <li><strong>Certified in Transactional Analysis - Psychotherapy</strong>, International Transactional Analysis Association (ITAA via IBOC)</li>
-                    <li><strong>Advanced Diploma in Counselling and Psychotherapy in TA</strong>, TA East London Counselling Institute</li>
-                    <li><strong>Diploma in Transformational Coaching</strong>, Animas Centre for Coaching</li>
-                    <li><strong>Certificate in Personal Coaching</strong>, The Coaching Academy</li>
-                    <li><strong>MSc in Organisational Psychology</strong>, West University of Timisoara, Sociology and Psychology Faculty</li>
-                    <li><strong>BSc in Psychology</strong>, West University of Timisoara, Sociology and Psychology Faculty</li>
+                    <li>
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <strong>Full Clinical Psychotherapist</strong>
+                            <span>UK Council for Psychotherapy (UKCP)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-certificate"></i>
+                        <div>
+                            <strong>Certified in Transactional Analysis - Psychotherapy</strong>
+                            <span>International Transactional Analysis Association (ITAA via IBOC)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-comments"></i>
+                        <div>
+                            <strong>Transformational Coach</strong>
+                            <span>Animas Coaching Centre (ICF Accredited)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-brain"></i>
+                        <div>
+                            <strong>Member and Researcher</strong>
+                            <span>Association of Industrial and Organisational Psychology (APIO)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <strong>Advanced Diploma in Counselling and Psychotherapy in TA</strong>
+                            <span>TA East London Counselling Institute</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-comments"></i>
+                        <div>
+                            <strong>Diploma in Transformational Coaching</strong>
+                            <span>Animas Centre for Coaching</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <strong>MSc in Organisational Psychology</strong>
+                            <span>West University of Timisoara, Sociology and Psychology Faculty</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-brain"></i>
+                        <div>
+                            <strong>BSc in Psychology</strong>
+                            <span>West University of Timisoara, Sociology and Psychology Faculty</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="contact" data-aos="fade-up">
-            <h2 class="mt2">Get in touch</h2>
-            <p>If you're thinking about therapy but not quite sure, that's okay. Whether for yourself or your relationship, we can explore what’s going on and what you need. Feel free to get in touch or book an initial consultation.</p>
-            <div class="cta-buttons">
-                <a href="mailto:contact@alenatodorov.com" class="button secondary" data-aos="fade-up">Email me</a>
-                <a href="https://calendly.com/consultation-alena/initial-consultation" class="button" data-aos="fade-up">Schedule consultation</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact mb4" id="contact">
+        <div class="container">
+            <div class="contact-content" data-aos="fade-up">
+                <h2 class="section-title">Get in touch</h2>
+                <p>If you're thinking about therapy but not quite sure, that's okay. Whether for yourself or your relationship, we can explore what's going on and what you need. Feel free to get in touch or book an initial consultation.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:contact@alenatodorov.com" class="button secondary">Email me</a>
+                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Book a Consultation</a>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize AOS (Animate on Scroll)
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 100
-            });
-
-            // Enhanced accordion functionality
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const body = header.nextElementSibling;
-                    const isOpen = header.classList.contains('active');
-                    
-                    // Close all accordions
-                    document.querySelectorAll('.accordion-header').forEach(h => {
-                        h.classList.remove('active');
-                        h.nextElementSibling.style.maxHeight = null;
-                        h.nextElementSibling.style.opacity = '0';
-                    });
-                    
-                    // Open clicked accordion if it was closed
-                    if (!isOpen) {
-                        header.classList.add('active');
-                        body.style.maxHeight = `${body.scrollHeight}px`;
-                        body.style.opacity = '1';
-                    }
-                });
-            });
-        });
-    </script>
+    
 </body>
 </html>
