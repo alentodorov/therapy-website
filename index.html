@@ -13,6 +13,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alena Todorov - Psychotherapist in London</title>
+    <meta name="description" content="Psychotherapist & Coach in London helping individuals and couples navigate relationship patterns, burnout, and identity challenges.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Alena Todorov - Psychotherapist & Coach">
+    <meta property="og:description" content="Transform your relationships with yourself and others. Specializing in relationship patterns, burnout, and identity challenges in London.">
+    <meta property="og:image" content="https://alenatodorov.com/og.png">
+    <meta property="og:url" content="https://alenatodorov.com">
+    <meta property="og:type" content="website">
     
     <!-- Tachyons CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
@@ -76,7 +84,10 @@
     <header>
         <nav class="main-nav">
             <div class="container nav-container">
-                <a href="#" class="nav-logo">Alena Todorov</a>
+                <a href="#" class="nav-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                    <img src="AT-profile.jpeg" alt="Alena Todorov" class="nav-logo-image">
+                    <span>Alena Todorov</span>
+                </a>
                 <ul>
                     <li class="desktop-only"><a href="#approach">My Approach</a></li>
                     <li class="desktop-only"><a href="#services">How I Help</a></li>
@@ -136,7 +147,7 @@
     </section>
     
     <!-- Details Section -->
-    <section class="details" id="services">
+    <section class="details" >
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">More details</h2>
             <div class="details-grid">
@@ -160,7 +171,7 @@
     </section> 
 
     <!-- Services Section -->
-    <section class="services">
+    <section class="services"id="services">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">How I can help</h2>
             <div class="accordion-items">
@@ -298,6 +309,35 @@
                     body.style.maxHeight = body.scrollHeight + "px";
                 }
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all sections that have an ID defined
+            const sections = document.querySelectorAll("section[id]");
+            
+            // Add an event listener listening for scroll
+            window.addEventListener("scroll", navHighlighter);
+            
+            function navHighlighter() {
+                // Get current scroll position
+                let scrollY = window.pageYOffset;
+                
+                // Loop through sections to get height, top and ID values for each
+                sections.forEach(current => {
+                    const sectionHeight = current.offsetHeight;
+                    const sectionTop = current.offsetTop - 100; // Adjust offset for nav height
+                    const sectionId = current.getAttribute("id");
+                    
+                    // If our current scroll position enters the space where current section is
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        document.querySelector(".main-nav a[href*=" + sectionId + "]").classList.add("active");
+                    } else {
+                        document.querySelector(".main-nav a[href*=" + sectionId + "]").classList.remove("active");
+                    }
+                });
+            }
         });
     </script>
 </body>
