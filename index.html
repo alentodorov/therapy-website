@@ -54,10 +54,23 @@
                 });
             });
             
+            // Debounce function
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+            
             // Highlight active section
-            function highlightNavigation() {
+            const highlightNavigation = debounce(function() {
                 let scrollPosition = window.scrollY;
-
+                
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 100;
                     const sectionHeight = section.offsetHeight;
@@ -72,9 +85,9 @@
                         });
                     }
                 });
-            }
+            }, 100); // Debounce by 100ms
 
-            window.addEventListener('scroll', highlightNavigation);
+            window.addEventListener('scroll', highlightNavigation, { passive: true });
             highlightNavigation(); // Run on load
         });
     </script>
@@ -100,9 +113,19 @@
             <div class="header-grid">
                 <div class="header-content" data-aos="fade-up">
                     <h1>Alena Todorov</h1>
-                    <p class="subtitle">Psychotherapist & Coach</p>
-                    <p class="subtitle">East & Central London</p>
-                    <p class="header-qualifications"><i class="fas fa-certificate"></i> MSc Psych, CTA-P, UKCP reg</p>
+                    <div class="header-subtitle">
+                        <h2>Psychotherapist & Coach</h2>
+                        <div class="header-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>East & Central London</span>
+                        </div>
+                        <div class="header-qualifications">
+                            <i class="fas fa-award"></i>
+                            <span>MSc Psych, CTA-P, UKCP reg</span>
+                        </div>
+                    </div>
+                    <p class="header-description">Helping individuals and couples break patterns, overcome burnout, and rediscover themselves.</p>
+                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Book a Consultation</a>
                 </div>
                 <img src="AT-profile.jpeg" alt="Professional headshot of Alena Todorov" class="profile-image" data-aos="fade-up">
             </div>
@@ -209,7 +232,7 @@
     <!-- Qualifications Section -->
     <section class="qualifications-section" id="qualifications">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Training, qualifications and experience</h2>
+            <h2 class="section-title" data-aos="fade-up">Training and qualifications</h2>
             <div class="qualifications-content" data-aos="fade-up">
                 <p class="mb3">Over 14 years' experience in psychotherapy, coaching, organisational development, and mental health</p>
                 <ul>
@@ -282,7 +305,7 @@
                 <p>If you're thinking about therapy but not quite sure, that's okay. Whether for yourself or your relationship, we can explore what's going on and what you need. Feel free to get in touch or book an initial consultation.</p>
                 <div class="cta-buttons">
                     <a href="mailto:contact@alenatodorov.com" class="button secondary">Email me</a>
-                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Schedule consultation</a>
+                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="button">Book a Consultation</a>
                 </div>
             </div>
         </div>
@@ -316,35 +339,6 @@
                     body.style.maxHeight = body.scrollHeight + "px";
                 }
             });
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all sections that have an ID defined
-            const sections = document.querySelectorAll("section[id]");
-            
-            // Add an event listener listening for scroll
-            window.addEventListener("scroll", navHighlighter);
-            
-            function navHighlighter() {
-                // Get current scroll position
-                let scrollY = window.pageYOffset;
-                
-                // Loop through sections to get height, top and ID values for each
-                sections.forEach(current => {
-                    const sectionHeight = current.offsetHeight;
-                    const sectionTop = current.offsetTop - 100; // Adjust offset for nav height
-                    const sectionId = current.getAttribute("id");
-                    
-                    // If our current scroll position enters the space where current section is
-                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                        document.querySelector(".main-nav a[href*=" + sectionId + "]").classList.add("active");
-                    } else {
-                        document.querySelector(".main-nav a[href*=" + sectionId + "]").classList.remove("active");
-                    }
-                });
-            }
         });
     </script>
 </body>
