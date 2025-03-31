@@ -7,7 +7,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-JH1798MB9Y');
     </script>
     <meta charset="UTF-8">
@@ -36,61 +35,11 @@
     <link rel="stylesheet" href="styles.css">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Smooth Scroll -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.main-nav a');
-            
-            // Smooth scroll
-            navLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Debounce function
-            function debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
-            
-            // Highlight active section
-            const highlightNavigation = debounce(function() {
-                let scrollPosition = window.scrollY;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + sectionId) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, 100); // Debounce by 100ms
-
-            window.addEventListener('scroll', highlightNavigation, { passive: true });
-            highlightNavigation(); // Run on load
-        });
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="main.js" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -311,35 +260,10 @@
         </div>
     </section>
 
-    <script>
-        // Initialize AOS after DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({
-                duration: 800,
-                offset: 50,
-                once: true
-            });
-        });
-
-        // Accordion functionality
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const body = header.nextElementSibling;
-                const isOpen = header.classList.contains('active');
-                
-                // Close all accordion items
-                document.querySelectorAll('.accordion-header').forEach(h => {
-                    h.classList.remove('active');
-                    h.nextElementSibling.style.maxHeight = null;
-                });
-                
-                // Open clicked item if it was closed
-                if (!isOpen) {
-                    header.classList.add('active');
-                    body.style.maxHeight = body.scrollHeight + "px";
-                }
-            });
-        });
-    </script>
+    <footer class="bg-gray-100 py-8 text-center text-gray-500 text-sm">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Alena Todorov. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
