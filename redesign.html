@@ -330,6 +330,40 @@
             left: 0;
         }
         
+        .hero-availability {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: fit-content;
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        .availability-icon {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+        }
+        
+        .availability-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .availability-label {
+            font-weight: 500;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        .availability-hours {
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+        }
+        
         .hero-image-container {
             position: relative;
             height: 100%;
@@ -464,6 +498,62 @@
             
             .credential-item img {
                 height: 30px;
+            }
+            
+            .hero {
+                padding-top: 100px;
+                padding-bottom: var(--spacing-xl);
+                min-height: auto;
+            }
+            
+            .hero-content::before {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.75rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-info {
+                flex-wrap: wrap;
+            }
+            
+            .hero-info-item {
+                margin-right: var(--spacing-md);
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .hero-image-accent {
+                width: 100px;
+                height: 100px;
+                bottom: -20px;
+                right: -20px;
+            }
+            
+            .credentials {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: -50px;
+                width: 80%;
+                z-index: 3;
+            }
+            
+            .hero-availability {
+                margin-bottom: var(--spacing-md);
+                max-width: 100%;
             }
         }
         
@@ -2504,7 +2594,19 @@
                         </div>
                     </div>
                     <p class="hero-description">Transform your relationship with yourself and others. Break patterns, overcome burnout, and rediscover your authentic self.</p>
-                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="hero-cta">Book a Consultation</a>
+                    <a href="https://calendly.com/consultation-alena/initial-consultation" class="hero-cta">
+                        <span>Book a Consultation</span>
+                    </a>
+                    
+                    <div class="hero-availability">
+                        <div class="availability-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="availability-content">
+                            <span class="availability-label">Zoom Sessions Available</span>
+                            <span class="availability-hours">10:00 - 18:00 UTC</span>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="hero-image-container">
