@@ -1,0 +1,2747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alena Todorov - Russian Design Concept</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Colors - Russian Graphic Design inspired - Joyful Palette */
+            --primary-color: #2b2d42;
+            --secondary-color: #3d405b;
+            --accent-color: #f77f00;
+            --accent-secondary: #7cb518;
+            --background-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --text-secondary: #6c757d;
+            --border-color: #dee2e6;
+            --accent-light: rgba(247, 127, 0, 0.1);
+            --accent-secondary-light: rgba(124, 181, 24, 0.1);
+            --highlight-color: #f77f00;
+            --highlight-secondary: #7cb518;
+            
+            /* Spacing */
+            --spacing-unit: 10px;
+            --spacing-xs: calc(var(--spacing-unit) * 1);
+            --spacing-sm: calc(var(--spacing-unit) * 2);
+            --spacing-md: calc(var(--spacing-unit) * 4);
+            --spacing-lg: calc(var(--spacing-unit) * 8);
+            --spacing-xl: calc(var(--spacing-unit) * 12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'PT Sans', sans-serif;
+            color: var(--text-color);
+            line-height: 1.5;
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(245, 245, 245, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: var(--spacing-sm) 0;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            text-decoration: none;
+            color: var(--primary-color);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 0;
+            object-fit: cover;
+            transform: rotate(-5deg);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .nav-logo span {
+            font-family: 'PT Serif', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        .contact-link {
+            color: var(--accent-color);
+        }
+        
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        /* Hero Section - Russian Graphic Design Inspired */
+        .hero {
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--background-color);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #fff5eb;
+            z-index: 0;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        .diagonal-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .diagonal-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 45%;
+            width: 2px;
+            height: 100%;
+            /* background-color: var(--accent-color); */
+            transform: rotate(15deg);
+            transform-origin: top left;
+        }
+        
+        .geometric-shape {
+            position: absolute;
+            z-index: 1;
+            background-color: var(--accent-color);
+            opacity: 0.1;
+        }
+        
+        .geometric-shape.circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+        }
+        
+        .geometric-shape.rectangle {
+            width: 200px;
+            height: 400px;
+            bottom: -200px;
+            right: 10%;
+            transform: rotate(45deg);
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            padding-right: var(--spacing-xl);
+            position: relative;
+        }
+        
+        .hero-eyebrow {
+            font-family: 'PT Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-md);
+            transform: translateX(var(--spacing-sm));
+            display: inline-block;
+            position: relative;
+        }
+        
+        .hero-eyebrow::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 15px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .hero-title {
+            font-family: 'PT Serif', serif;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .hero-title .word {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .hero-title .transform {
+            margin-right: 0.2em;
+        }
+        
+        .hero-title .transform::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            transform: scaleX(0.7) rotate(-2deg);
+            transform-origin: left;
+        }
+        
+        .hero-title .your {
+            font-style: italic;
+            font-size: 0.8em;
+            opacity: 0.8;
+            transform: translateY(-0.1em);
+            margin: 0 0.1em;
+        }
+        
+        .hero-title .highlight {
+            color: var(--accent-color);
+            position: relative;
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-title .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 3px;
+            height: 100%;
+            background-color: var(--accent-color);
+            transform: scaleY(0.6);
+        }
+        
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(247, 127, 0, 0.2);
+            z-index: -1;
+        }
+        
+        .hero-title .highlight-letters {
+            display: inline-block;
+        }
+        
+        .hero-title .letter {
+            display: inline-block;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .hero-title:hover .letter:nth-child(odd) {
+            transform: translateY(-2px);
+        }
+        
+        .hero-title:hover .letter:nth-child(even) {
+            transform: translateY(2px);
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            max-width: 40ch;
+            position: relative;
+        }
+        
+        .vertical-text {
+            position: absolute;
+            top: 0;
+            right: 0;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-family: 'PT Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            opacity: 0.5;
+            padding-right: var(--spacing-md);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: 'PT Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-button.primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+        
+        .hero-button.primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .hero-button.primary:hover::before {
+            left: 0;
+        }
+        
+        .hero-button.secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .hero-button.secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .hero-meta {
+            margin-top: var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+        
+        .hero-availability {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            position: relative;
+        }
+        
+        .availability-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-secondary);
+            border-radius: 50%;
+        }
+        
+        .availability-text {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+        
+        .credentials {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .credential-item img {
+            height: 30px;
+            width: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .credential-item:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .hero-image-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            transform: rotate(3deg);
+            border: 5px solid var(--primary-color);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.1) grayscale(0.3);
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image:hover {
+            filter: contrast(1.2) grayscale(0);
+        }
+        
+        .hero-image-caption {
+            position: absolute;
+            bottom: 30px;
+            right: -40px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: white;
+            font-family: 'PT Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-color);
+            transform: rotate(90deg);
+            transform-origin: right bottom;
+            border: 2px solid var(--primary-color);
+            white-space: nowrap;
+        }
+        
+        .hero-quote {
+            position: absolute;
+            left: -80px;
+            bottom: 60px;
+            max-width: 250px;
+            padding: var(--spacing-md);
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            font-family: 'PT Serif', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            font-style: italic;
+            transform: rotate(-5deg);
+            z-index: 3;
+        }
+        
+        .hero-quote::before {
+            content: '"';
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-size: 6rem;
+            line-height: 1;
+            color: var(--accent-color);
+            opacity: 0.2;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .vertical-text {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero::before {
+                width: 100%;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                opacity: 0.5;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .hero-content {
+                padding-right: 0;
+            }
+            
+            .hero-image-container {
+                margin: 0 auto;
+                max-width: 400px;
+            }
+            
+            .hero-quote {
+                position: relative;
+                left: auto;
+                bottom: auto;
+                max-width: 100%;
+                margin-top: var(--spacing-md);
+                transform: rotate(0);
+            }
+            
+            .hero-image-caption {
+                right: -30px;
+                bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-logo span {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: var(--spacing-lg);
+                transition: right 0.3s ease;
+                z-index: 99;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding: var(--spacing-xl) 0;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <img src="AT-profile.jpeg" alt="Alena Todorov">
+                <span>Todorov</span>
+            </a>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#approach">My Approach</a></li>
+                <li><a href="#details">Services</a></li>
+                <li><a href="#services">How I Help</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#contact" class="contact-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="diagonal-line"></div>
+        <div class="geometric-shape circle"></div>
+        <div class="geometric-shape rectangle"></div>
+        
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-eyebrow">Psychotherapist</span>
+                    <h1 class="hero-title">
+                        <span class="word transform">Transform</span>
+                        <span class="word your">Your</span>
+                        <span class="highlight">
+                            <span class="highlight-letters">
+                                <span class="letter">R</span><span class="letter">e</span><span class="letter">l</span><span class="letter">a</span><span class="letter">t</span><span class="letter">i</span><span class="letter">o</span><span class="letter">n</span><span class="letter">s</span><span class="letter">h</span><span class="letter">i</span><span class="letter">p</span><span class="letter">s</span>
+                            </span>
+                        </span>
+                    </h1>
+                    <p class="hero-description">Transform your relationship with yourself and others. Break patterns, overcome burnout, and rediscover your authentic self.</p>
+                    <div class="vertical-text">Est. 2015</div>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="hero-button primary">Book Consultation</a>
+                        <a href="#approach" class="hero-button secondary">My Approach</a>
+                    </div>
+                    <div class="hero-meta">
+                        <div class="hero-availability">
+                            <div class="availability-dot"></div>
+                            <span class="availability-text">Currently accepting new clients</span>
+                        </div>
+                        <div class="credentials">
+                            <div class="credential-item">
+                                <img src="logos/UKCP.png" alt="UKCP Logo">
+                            </div>
+                            <div class="credential-item">
+                                <img src="logos/ITAA-LOGO_1.png" alt="ITAA Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <div class="hero-image-wrapper">
+                        <img src="AT-profile.jpeg" alt="Alena Todorov" class="hero-image">
+                        <div class="hero-image-caption">MSc Psych, CTA-P, UKCP reg</div>
+                    </div>
+                    <div class="hero-quote">
+                        "Therapy is a collaborative journey toward understanding yourself more deeply."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-container">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-placeholder">
+                            <div class="about-image-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-accent"></div>
+                    <div class="about-location">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="location-text">
+                            <span class="location-from">From: Timișoara, Romania</span>
+                            <span class="location-now">Now: London, UK</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <span class="section-eyebrow">My Story</span>
+                    <div class="section-title-container">
+                        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+                        <div class="title-accent"></div>
+                    </div>
+                    
+                    <div class="about-text">
+                        <p>My journey as a psychotherapist began 15 years ago in the city of Timișoara, Romania. Like many Londoners, I wasn't born here, but I've grown to deeply align with the city's values of openness, diversity, and growth.</p>
+                        
+                        <p>Over the past decade, since moving to the UK, I've worked within organisations in roles focused on organisational psychology, learning and development. Along the way, I also trained as a coach and completed my Transactional Analysis (TA) certification here in the UK.</p>
+                        
+                        <p>Whether you're navigating the complexities of adapting to a new culture or you feel deeply rooted in this one, I can meet you where you are. This work is about creating space — space for your experiences, your transitions, and your truth.</p>
+                    </div>
+                    
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <span>Empathy</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <span>Growth</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-globe-europe"></i>
+                            </div>
+                            <span>Diversity</span>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <span>Authenticity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* About Section Styles */
+        .about {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+            background-color: var(--background-color);
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background-color: var(--accent-secondary);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        
+        .about-image-container {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .about-image-wrapper {
+            position: relative;
+            z-index: 2;
+            transform: rotate(-3deg);
+        }
+        
+        .about-image-placeholder {
+            width: 100%;
+            height: 500px;
+            background-color: var(--accent-light);
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-image-icon {
+            font-size: 5rem;
+            color: var(--accent-color);
+            opacity: 0.7;
+        }
+        
+        .about-accent {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-secondary-light);
+            border: 2px solid var(--primary-color);
+            z-index: 1;
+        }
+        
+        .about-location {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            z-index: 3;
+            transform: rotate(2deg);
+        }
+        
+        .location-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-light);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .location-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .location-from, .location-now {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .location-now {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-family: 'PT Serif', serif;
+        }
+        
+        .about-values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .value-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-light);
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-item:nth-child(even) .value-icon {
+            background-color: var(--accent-secondary-light);
+            color: var(--accent-secondary);
+        }
+        
+        .value-item:hover .value-icon {
+            transform: rotate(15deg);
+        }
+        
+        .value-item span {
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .about-image-container {
+                margin-bottom: 0;
+            }
+            
+            .about-image-placeholder {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-location {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: var(--spacing-md);
+                transform: none;
+            }
+            
+            .about-values {
+                justify-content: space-between;
+            }
+            
+            .value-item {
+                width: calc(50% - var(--spacing-sm));
+                margin-bottom: var(--spacing-md);
+            }
+        }
+    </style>
+    
+    <!-- My Approach Section -->
+    <section class="approach" id="approach">
+        <div class="container">
+            <div class="approach-header">
+                <span class="section-eyebrow">Methodology</span>
+                <div class="section-title-container">
+                    <h2 class="section-title">My <span class="highlight">Approach</span></h2>
+                    <div class="title-accent"></div>
+                </div>
+                <p class="approach-intro">I blend evidence-based therapeutic modalities with a warm, collaborative style to create a space where you feel both supported and challenged to grow.</p>
+            </div>
+            
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Transactional Analysis</h3>
+                        <p>A relational approach that explores how early experiences shape your patterns, scripts, and ways of relating. TA offers practical tools for understanding yourself and your relationships more deeply.</p>
+                    </div>
+                </div>
+                
+                <div class="approach-card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Attachment Theory</h3>
+                        <p>Understanding how your early relationships influence your adult connections. We'll explore your attachment patterns and work toward building more secure ways of relating to yourself and others.</p>
+                    </div>
+                </div>
+                
+                <div class="approach-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Relational Psychotherapy</h3>
+                        <p>A collaborative approach that recognizes the therapeutic relationship itself as a powerful vehicle for change. We'll use our interactions to understand your relational patterns in real time.</p>
+                    </div>
+                </div>
+                
+                <div class="approach-card">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="card-text">
+                        <h3>Transformational Coaching</h3>
+                        <p>Focus on growth and possibility. We'll work together to clarify your values, strengthen your sense of self, and create actionable steps toward meaningful change.</p>
+                    </div>
+                </div>
+                
+                <div class="approach-cta">
+                    <a href="#contact" class="approach-button">Begin Your Journey</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Approach Section Styles */
+        .approach {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--background-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .approach::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: var(--accent-secondary-light);
+            border-radius: 0;
+            transform: rotate(45deg) translate(100px, -100px);
+            z-index: 0;
+        }
+        
+        .approach::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: var(--accent-light);
+            border-radius: 0;
+            transform: rotate(45deg) translate(-50px, 50px);
+            z-index: 0;
+        }
+        
+        .approach-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .approach-intro {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-md);
+            font-family: 'PT Serif', serif;
+        }
+        
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .approach-card {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .approach-card:nth-child(odd) {
+            transform: rotate(-1deg);
+        }
+        
+        .approach-card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+        
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-light);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+        
+        .approach-card:nth-child(even)::before {
+            background-color: var(--accent-secondary-light);
+        }
+        
+        .approach-card:hover {
+            transform: scale(1.03) rotate(0);
+        }
+        
+        .approach-card:hover::before {
+            transform: translate(5px, 5px);
+        }
+        
+        .card-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-light);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .approach-card:nth-child(even) .card-icon {
+            background-color: var(--accent-secondary-light);
+            color: var(--accent-secondary);
+        }
+        
+        .card-text {
+            flex-grow: 1;
+        }
+        
+        .card-text h3 {
+            font-family: 'PT Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+        }
+        
+        .card-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        .approach-cta {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .approach-button {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .approach-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .approach-button:hover::before {
+            left: 100%;
+        }
+        
+        @media (max-width: 992px) {
+            .approach-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .approach-card {
+                transform: none !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .approach-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+            
+            .card-icon {
+                margin-bottom: var(--spacing-sm);
+            }
+        }
+    </style>
+    
+    <!-- Qualifications Section -->
+    <section class="qualifications" id="qualifications">
+        <div class="container">
+            <div class="qualifications-header">
+                <span class="section-eyebrow">Experience & Education</span>
+                <div class="section-title-container">
+                    <h2 class="section-title">Training and <span class="highlight">Qualifications</span></h2>
+                    <div class="title-accent"></div>
+                </div>
+                <p class="qualifications-intro">Over 14 years' experience in psychotherapy, coaching, organisational development, and mental health</p>
+            </div>
+            
+            <div class="qualifications-grid">
+                <div class="qualification-card">
+                    <div class="qualification-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="qualification-content">
+                        <h3>Education</h3>
+                        <ul class="qualification-list">
+                            <li>MSc in Transactional Analysis Psychotherapy</li>
+                            <li>Certified Transactional Analyst (Psychotherapy)</li>
+                            <li>UKCP Registered Psychotherapist</li>
+                            <li>Transformational Coaching Certification</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="qualification-card">
+                    <div class="qualification-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="qualification-content">
+                        <h3>Professional Experience</h3>
+                        <ul class="qualification-list">
+                            <li>Private Practice Psychotherapist (8+ years)</li>
+                            <li>Organizational Development Consultant</li>
+                            <li>Mental Health Service Provider</li>
+                            <li>Group Facilitator</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="qualification-card">
+                    <div class="qualification-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="qualification-content">
+                        <h3>Specializations</h3>
+                        <ul class="qualification-list">
+                            <li>Relationship Dynamics</li>
+                            <li>Burnout & Stress Management</li>
+                            <li>Neurodiversity-Affirming Practice</li>
+                            <li>Cultural Identity & Belonging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="qualifications-note">
+                <div class="note-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <p>I am committed to ongoing professional development and regularly attend training, supervision, and conferences to enhance my practice.</p>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Qualifications Section Styles */
+        .qualifications {
+            padding: var(--spacing-xl) 0;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .qualifications::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: var(--accent-light);
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+        
+        .qualifications-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .qualifications-intro {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-md);
+            font-family: 'PT Serif', serif;
+        }
+        
+        .qualifications-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .qualification-card {
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            padding: var(--spacing-lg);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .qualification-card:nth-child(1) {
+            transform: rotate(-1deg);
+        }
+        
+        .qualification-card:nth-child(2) {
+            transform: rotate(1deg);
+        }
+        
+        .qualification-card:nth-child(3) {
+            transform: rotate(-1deg);
+        }
+        
+        .qualification-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-light);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+        
+        .qualification-card:nth-child(2)::before {
+            background-color: var(--accent-secondary-light);
+        }
+        
+        .qualification-card:hover {
+            transform: scale(1.03) rotate(0);
+        }
+        
+        .qualification-card:hover::before {
+            transform: translate(5px, 5px);
+        }
+        
+        .qualification-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-light);
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .qualification-card:nth-child(2) .qualification-icon {
+            background-color: var(--accent-secondary-light);
+            color: var(--accent-secondary);
+        }
+        
+        .qualification-content h3 {
+            font-family: 'PT Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .qualification-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .qualification-card:nth-child(2) .qualification-content h3::after {
+            background-color: var(--accent-secondary);
+        }
+        
+        .qualification-list {
+            list-style: none;
+        }
+        
+        .qualification-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        .qualification-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            transform: rotate(45deg);
+        }
+        
+        .qualification-card:nth-child(2) .qualification-list li::before {
+            background-color: var(--accent-secondary);
+        }
+        
+        .qualifications-note {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-md);
+            background-color: var(--accent-light);
+            border: 2px solid var(--primary-color);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .note-icon {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .qualifications-note p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        @media (max-width: 992px) {
+            .qualifications-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+            
+            .qualification-card:nth-child(3) {
+                grid-column: span 2;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .qualifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .qualification-card {
+                transform: none !important;
+            }
+            
+            .qualification-card:nth-child(3) {
+                grid-column: span 1;
+            }
+        }
+    </style>
+    
+    <!-- How I Can Help Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <span class="section-eyebrow">Specializations</span>
+                <div class="section-title-container">
+                    <h2 class="section-title">How I <span class="highlight">Can Help</span></h2>
+                    <div class="title-accent"></div>
+                </div>
+                <p class="services-intro">I specialize in helping individuals and couples address a range of challenges through compassionate, evidence-based therapy.</p>
+            </div>
+            
+            <div class="services-tabs">
+                <div class="tabs-navigation">
+                    <button class="tab-button active" data-tab="relationships">
+                        <i class="fas fa-heart"></i>
+                        <span>Relationships</span>
+                    </button>
+                    <button class="tab-button" data-tab="burnout">
+                        <i class="fas fa-fire-alt"></i>
+                        <span>Burnout</span>
+                    </button>
+                    <button class="tab-button" data-tab="neurodiversity">
+                        <i class="fas fa-brain"></i>
+                        <span>Neurodiversity</span>
+                    </button>
+                    <button class="tab-button" data-tab="identity">
+                        <i class="fas fa-globe"></i>
+                        <span>Cultural Identity</span>
+                    </button>
+                    <button class="tab-button" data-tab="self-esteem">
+                        <i class="fas fa-seedling"></i>
+                        <span>Self-Esteem</span>
+                    </button>
+                </div>
+                
+                <div class="tabs-content">
+                    <div class="tab-panel active" id="relationships">
+                        <div class="panel-grid">
+                            <div class="panel-image">
+                                <div class="image-placeholder relationships-image">
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-content">
+                                <h3>Relationship patterns and emotional closeness</h3>
+                                <p>If you find yourself stuck in repeating patterns—emotional distance, conflict, or fear of intimacy—I can help you understand the deeper dynamics at play. Using a relational, TA-based approach, we explore early experiences and scripts that shape how you connect and work toward building healthier, more secure relationships.</p>
+                                <ul class="panel-benefits">
+                                    <li>Identify recurring relationship patterns</li>
+                                    <li>Understand attachment styles and needs</li>
+                                    <li>Develop skills for authentic connection</li>
+                                    <li>Navigate conflict with greater ease</li>
+                                </ul>
+                                <a href="#contact" class="panel-cta">Discuss Your Needs</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="burnout">
+                        <div class="panel-grid">
+                            <div class="panel-image">
+                                <div class="image-placeholder burnout-image">
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-fire-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-content">
+                                <h3>Burnout, pressure and role fatigue</h3>
+                                <p>If you're feeling stretched thin or constantly on edge, therapy offers a space to slow down and reconnect. Together, we explore the roles you've taken on—at work, in your family, or both—and gently shift the patterns that lead to emotional exhaustion, perfectionism, and loss of self.</p>
+                                <ul class="panel-benefits">
+                                    <li>Recognize early signs of burnout</li>
+                                    <li>Set healthier boundaries</li>
+                                    <li>Reconnect with your core values</li>
+                                    <li>Develop sustainable self-care practices</li>
+                                </ul>
+                                <a href="#contact" class="panel-cta">Discuss Your Needs</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="neurodiversity">
+                        <div class="panel-grid">
+                            <div class="panel-image">
+                                <div class="image-placeholder neurodiversity-image">
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-content">
+                                <h3>Neurodiversity and self-acceptance</h3>
+                                <p>Whether you're diagnosed or self-identifying as neurodivergent (ADHD, Autism, Highly Sensitive, or other), I provide a supportive, affirming space to process your experience. We explore how masking, emotional regulation, or being misunderstood may have shaped your self-image—and how to reclaim your strengths and identity.</p>
+                                <ul class="panel-benefits">
+                                    <li>Understand your unique neurological profile</li>
+                                    <li>Develop personalized coping strategies</li>
+                                    <li>Navigate social and professional environments</li>
+                                    <li>Build confidence in your authentic self</li>
+                                </ul>
+                                <a href="#contact" class="panel-cta">Discuss Your Needs</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="identity">
+                        <div class="panel-grid">
+                            <div class="panel-image">
+                                <div class="image-placeholder identity-image">
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-content">
+                                <h3>Cultural identity, migration and belonging</h3>
+                                <p>Moving between cultures can impact your sense of self and belonging. Drawing from my own experience and training, I help you navigate cultural transitions, identity questions, and finding your authentic voice across different contexts.</p>
+                                <ul class="panel-benefits">
+                                    <li>Process cultural transition experiences</li>
+                                    <li>Integrate different aspects of identity</li>
+                                    <li>Address feelings of displacement or isolation</li>
+                                    <li>Build a sense of belonging on your own terms</li>
+                                </ul>
+                                <a href="#contact" class="panel-cta">Discuss Your Needs</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="self-esteem">
+                        <div class="panel-grid">
+                            <div class="panel-image">
+                                <div class="image-placeholder self-esteem-image">
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-content">
+                                <h3>Low self-esteem and inner criticism</h3>
+                                <p>When your inner voice is critical, harsh, or never satisfied, it can impact every part of your life. I help you explore where that voice came from and how to transform it. Using a compassionate, trauma-informed approach, we work toward a more grounded and accepting sense of self.</p>
+                                <ul class="panel-benefits">
+                                    <li>Identify sources of self-criticism</li>
+                                    <li>Develop self-compassion practices</li>
+                                    <li>Challenge negative core beliefs</li>
+                                    <li>Build a healthier relationship with yourself</li>
+                                </ul>
+                                <a href="#contact" class="panel-cta">Discuss Your Needs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Services Section Styles */
+        .services {
+            padding: var(--spacing-xl) 0;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background-color: var(--accent-color);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        }
+        
+        .services-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            position: relative;
+        }
+        
+        .services-intro {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-md);
+            font-family: 'PT Serif', serif;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .tab-button {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--background-color);
+            border: 2px solid var(--border-color);
+            border-radius: 0;
+            font-family: 'PT Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .tab-button:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .tab-button:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tab-button.active {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            background-color: var(--accent-light);
+        }
+        
+        .tab-button.active::before {
+            transform: scaleX(1);
+        }
+        
+        .tab-button i {
+            font-size: 1rem;
+        }
+        
+        .tabs-content {
+            position: relative;
+        }
+        
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+        
+        .panel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        
+        .panel-image {
+            position: relative;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: var(--accent-light);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transform: rotate(-3deg);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .placeholder-icon {
+            font-size: 5rem;
+            color: var(--accent-color);
+            opacity: 0.7;
+        }
+        
+        .relationships-image {
+            background-color: var(--accent-light);
+        }
+        
+        .burnout-image {
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .neurodiversity-image {
+            background-color: rgba(100, 204, 197, 0.1);
+        }
+        
+        .identity-image {
+            background-color: rgba(124, 181, 24, 0.1);
+        }
+        
+        .self-esteem-image {
+            background-color: rgba(247, 127, 0, 0.1);
+        }
+        
+        .panel-content {
+            padding: var(--spacing-lg);
+            background-color: #fff;
+            border: 2px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .panel-content::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-secondary-light);
+            z-index: -1;
+        }
+        
+        .panel-content h3 {
+            font-family: 'PT Serif', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .panel-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .panel-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+        }
+        
+        .panel-benefits {
+            list-style: none;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .panel-benefits li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+        }
+        
+        .panel-benefits li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            transform: rotate(45deg);
+        }
+        
+        .panel-cta {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .panel-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .panel-cta:hover::before {
+            left: 100%;
+        }
+        
+        @media (max-width: 992px) {
+            .panel-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .panel-image {
+                order: -1;
+            }
+            
+            .image-placeholder {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tabs-navigation {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+            }
+            
+            .tab-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .panel-content {
+                padding: var(--spacing-md);
+            }
+            
+            .panel-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    
+    <!-- Tailored Support Section -->
+    <section class="support" id="details">
+        <div class="container">
+            <div class="support-header">
+                <span class="section-eyebrow">Services</span>
+                <div class="section-title-container">
+                    <h2 class="section-title">Tailored <span class="highlight">Support</span> for You</h2>
+                    <div class="title-accent"></div>
+                </div>
+            </div>
+            
+            <div class="support-grid">
+                <div class="support-card" data-type="clients">
+                    <div class="card-content">
+                        <h3>Who I Work With</h3>
+                        <ul class="support-list">
+                            <li>
+                                <div class="icon-circle">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span>Individuals</span>
+                            </li>
+                            <li>
+                                <div class="icon-circle">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <span>Couples</span>
+                            </li>
+                            <li>
+                                <div class="icon-circle">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <span>Group/Family</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-visual">
+                        <div class="visual-shape shape-1"></div>
+                        <div class="visual-shape shape-2"></div>
+                    </div>
+                </div>
+                
+                <div class="support-card" data-type="sessions">
+                    <div class="card-content">
+                        <h3>Session Types</h3>
+                        <ul class="support-list">
+                            <li>
+                                <div class="icon-circle">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <span>Online (Zoom)</span>
+                            </li>
+                            <li>
+                                <div class="icon-circle">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <span>In-person (East and Central London)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-visual">
+                        <div class="visual-shape shape-3"></div>
+                        <div class="visual-shape shape-4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="support-quote">
+                <blockquote>
+                    "The journey of therapy is a collaborative process, tailored to your unique needs and experiences."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Support Section Styles */
+        .support {
+            padding: var(--spacing-xl) 0;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .support::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: var(--accent-secondary-light);
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            z-index: 0;
+        }
+        
+        .support-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .support-card {
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            padding: var(--spacing-lg);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .support-card:nth-child(1) {
+            transform: rotate(-1deg);
+        }
+        
+        .support-card:nth-child(2) {
+            transform: rotate(1deg);
+        }
+        
+        .support-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-light);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+        
+        .support-card:nth-child(2)::before {
+            background-color: var(--accent-secondary-light);
+        }
+        
+        .support-card:hover {
+            transform: scale(1.02) rotate(0);
+        }
+        
+        .support-card:hover::before {
+            transform: translate(5px, 5px);
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-content h3 {
+            font-family: 'PT Serif', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .card-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .support-card:nth-child(2) .card-content h3::after {
+            background-color: var(--accent-secondary);
+        }
+        
+        .support-list {
+            list-style: none;
+        }
+        
+        .support-list li {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 0;
+            background-color: var(--accent-light);
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .support-card:nth-child(2) .icon-circle {
+            background-color: var(--accent-secondary-light);
+            color: var(--accent-secondary);
+        }
+        
+        .support-list li:hover .icon-circle {
+            transform: rotate(15deg);
+        }
+        
+        .support-list li span {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .card-visual {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 30%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .visual-shape {
+            position: absolute;
+            background-color: var(--accent-light);
+            opacity: 0.3;
+        }
+        
+        .support-card:nth-child(2) .visual-shape {
+            background-color: var(--accent-secondary-light);
+        }
+        
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            top: -20px;
+            right: -20px;
+            transform: rotate(45deg);
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -50px;
+            right: -50px;
+            border-radius: 50%;
+        }
+        
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            top: 20px;
+            right: -20px;
+            transform: rotate(30deg);
+        }
+        
+        .shape-4 {
+            width: 120px;
+            height: 120px;
+            bottom: -30px;
+            right: -30px;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .support-quote {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background-color: var(--accent-light);
+            border-left: 3px solid var(--accent-color);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .support-card:nth-child(even) .support-quote {
+            background-color: var(--accent-secondary-light);
+            border-left-color: var(--accent-secondary);
+        }
+        
+        .support-quote blockquote {
+            font-family: 'PT Serif', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        @media (max-width: 992px) {
+            .support-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .support-card {
+                transform: none !important;
+            }
+            
+            .card-visual {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .support-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <span class="section-eyebrow">Get Started</span>
+                    <div class="section-title-container">
+                        <h2 class="section-title">Begin Your <span class="highlight">Journey</span></h2>
+                        <div class="title-accent"></div>
+                    </div>
+                    <p class="contact-intro">If you're thinking about therapy but not quite sure, that's okay. Whether for yourself or your relationship, we can explore what's going on and what you need.</p>
+                    
+                    <div class="contact-options">
+                        <div class="contact-option">
+                            <div class="option-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="option-content">
+                                <h3>Initial Consultation</h3>
+                                <p>Schedule a session to discuss your needs and see if we're a good fit.</p>
+                                <a href="https://calendly.com/consultation-alena/initial-consultation" class="option-button">
+                                    <span>Book Consultation</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <div class="option-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="option-content">
+                                <h3>Send a Message</h3>
+                                <p>Have questions before scheduling? Feel free to reach out directly.</p>
+                                <a href="mailto:contact@alenatodorov.com" class="option-button secondary">
+                                    <span>Email Me</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-note">
+                        <p>I typically respond to all inquiries within 24-48 hours during weekdays.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-visual">
+                    <div class="visual-container">
+                        <div class="contact-image-wrapper">
+                            <img src="AT-profile.jpeg" alt="Alena Todorov" class="contact-image">
+                        </div>
+                        <div class="contact-card">
+                            <div class="card-header">
+                                <h3>Practice Details</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>East & Central London</span>
+                                </div>
+                                <div class="card-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Sessions: 50 minutes</span>
+                                </div>
+                                <div class="card-item">
+                                    <i class="fas fa-pound-sign"></i>
+                                    <span>Fees discussed during consultation</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-accent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Contact Section Styles */
+        .contact {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--background-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: var(--accent-light);
+            clip-path: polygon(100% 0, 0 100%, 100% 100%);
+            z-index: 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--spacing-xl);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-content {
+            position: relative;
+        }
+        
+        .contact-intro {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            font-family: 'PT Serif', serif;
+            line-height: 1.6;
+        }
+        
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-option {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-option:nth-child(1) {
+            transform: rotate(-1deg);
+        }
+        
+        .contact-option:nth-child(2) {
+            transform: rotate(1deg);
+        }
+        
+        .contact-option::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-light);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-option:nth-child(2)::before {
+            background-color: var(--accent-secondary-light);
+        }
+        
+        .contact-option:hover {
+            transform: scale(1.02) rotate(0);
+        }
+        
+        .contact-option:hover::before {
+            transform: translate(5px, 5px);
+        }
+        
+        .option-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-light);
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .contact-option:nth-child(2) .option-icon {
+            background-color: var(--accent-secondary-light);
+            color: var(--accent-secondary);
+        }
+        
+        .option-content {
+            flex-grow: 1;
+        }
+        
+        .option-content h3 {
+            font-family: 'PT Serif', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .option-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .option-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option-button.secondary {
+            background-color: transparent;
+            color: var(--accent-secondary);
+            border: 2px solid var(--accent-secondary);
+        }
+        
+        .option-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .option-button:hover::before {
+            left: 100%;
+        }
+        
+        .contact-note {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            background-color: var(--accent-light);
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        .contact-note p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .contact-visual {
+            position: relative;
+        }
+        
+        .visual-container {
+            position: relative;
+        }
+        
+        .contact-image-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            transform: rotate(2deg);
+        }
+        
+        .contact-card {
+            position: absolute;
+            bottom: -200px;
+            right: -30px;
+            width: 80%;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            z-index: 2;
+            transform: rotate(-3deg);
+        }
+        
+        .card-header {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .card-header h3 {
+            font-family: 'PT Serif', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .card-body {
+            padding: var(--spacing-md);
+        }
+        
+        .card-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .card-item i {
+            color: var(--accent-color);
+        }
+        
+        .card-item span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .visual-accent {
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-secondary-light);
+            z-index: 0;
+            border: 2px solid var(--primary-color);
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .contact-visual {
+                order: -1;
+            }
+            
+            .contact-card {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                margin-top: var(--spacing-lg);
+                transform: none;
+            }
+            
+            .visual-accent {
+                display: none;
+            }
+            
+            .contact-image {
+                height: 300px;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-option {
+                flex-direction: column;
+                align-items: flex-start;
+                transform: none !important;
+            }
+            
+            .option-icon {
+                margin-bottom: var(--spacing-sm);
+            }
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            const navOverlay = document.querySelector('.nav-overlay');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    if (navOverlay) navOverlay.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            if (navOverlay) {
+                navOverlay.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+            
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    if (navOverlay) navOverlay.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+            
+            initializeTabs();
+
+            function initializeTabs() {
+                const tabButtons = document.querySelectorAll('.tab-button');
+                const tabPanels = document.querySelectorAll('.tab-panel');
+                
+                console.log('Found tab buttons:', tabButtons.length);
+                console.log('Found tab panels:', tabPanels.length);
+                
+                if (tabButtons.length > 0) {
+                    tabButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            const tabId = this.getAttribute('data-tab');
+                            console.log('Tab clicked:', tabId);
+                            
+                            tabButtons.forEach(btn => {
+                                btn.classList.remove('active');
+                            });
+                            
+                            this.classList.add('active');
+                            
+                            tabPanels.forEach(panel => {
+                                panel.classList.remove('active');
+                            });
+                            
+                            const targetPanel = document.getElementById(tabId);
+                            if (targetPanel) {
+                                targetPanel.classList.add('active');
+                                console.log('Activated panel:', tabId);
+                            } else {
+                                console.error('Panel not found:', tabId);
+                            }
+                        });
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
