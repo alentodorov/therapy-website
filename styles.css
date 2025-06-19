@@ -3,10 +3,10 @@
    ========================================================================== */
 :root {
     /* Colors */
-    --primary-color: #000000;
-    --secondary-color: #666666;
-    --accent-color: #265214;
-    --accent-color-hover: #224712;
+    --primary-color: #111111;
+    --secondary-color: #555555;
+    --accent-color: #ec1d25;
+    --accent-color-hover: #b5131b;
     --background-color: #ffffff;
     --text-color: #333333;
     --light-gray: #f8f8f8;
@@ -37,7 +37,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
@@ -111,6 +111,20 @@ p {
 header {
     padding: var(--spacing-xxl) 0;
     background: var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 40%;
+    height: 80%;
+    background: var(--accent-color);
+    transform: skewX(-10deg);
+    z-index: -1;
 }
 
 header .container {
