@@ -611,7 +611,7 @@ ul {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
 }
 
 .logo-item {
@@ -630,6 +630,19 @@ ul {
 
 .logo-image:hover {
     opacity: 1;
+}
+
+.logo-image.no-filter {
+    filter: none;
+}
+
+.logo-image.extra-padding {
+    padding: var(--spacing-xs);
+    background-color: white;
+}
+
+.logo-image.extra-size {
+    scale: 1.4;
 }
 
 @media (max-width: 768px) {
