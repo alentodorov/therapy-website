@@ -2,17 +2,17 @@
 @source "./**/*.{njk,html,js}";
 
 @theme {
-  --color-ink: #000000;
-  --color-ink-muted: #666666;
-  --color-ink-body: #333333;
-  --color-accent: #265214;
-  --color-accent-hover: #224712;
-  --color-surface: #ffffff;
-  --color-surface-alt: #f8f8f8;
-  --color-border: #eaeaea;
+  --color-ink: #2b332e;
+  --color-ink-muted: #5f6b62;
+  --color-ink-body: #3a443e;
+  --color-accent: #3f4f45;
+  --color-accent-hover: #36443c;
+  --color-surface: #f9f4ee;
+  --color-surface-alt: #f2e8dc;
+  --color-border: #d8cdbf;
 
   --font-sans: "Poppins", sans-serif;
-  --font-display: "Cormorant Garamond", serif;
+  --font-display: "Playfair Display", serif;
 }
 
 @layer utilities {

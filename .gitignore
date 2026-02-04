@@ -12,3 +12,7 @@ pnpm-debug.log*
 
 # OS files
 .DS_Store
+**/.DS_Store
+
+# References
+REFERENCE/
