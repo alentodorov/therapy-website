@@ -1,0 +1,17 @@
+{
+  "name": "therapy-website",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"bun run watch:css\" \"eleventy --serve\"",
+    "build": "eleventy && bun run build:css",
+    "watch:css": "mkdir -p _site/assets && tailwindcss -i ./src/styles.css -o ./_site/assets/styles.css --watch",
+    "build:css": "mkdir -p _site/assets && tailwindcss -i ./src/styles.css -o ./_site/assets/styles.css"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/cli": "^4.0.0",
+    "concurrently": "^9.0.0",
+    "live-server": "^1.2.2",
+    "tailwindcss": "^4.0.0"
+  }
+}

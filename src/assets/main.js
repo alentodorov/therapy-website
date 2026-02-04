@@ -5,27 +5,9 @@
 // Wait for DOM to be fully loaded before executing code
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize components
-  initAOS();
   initSmoothScroll();
   initMobileMenu();
-  initDetailsAnimation();
-  initAccordion();
 });
-
-/**
- * Initialize AOS (Animate On Scroll) library
- */
-const initAOS = () => {
-  try {
-    AOS.init({
-      duration: 800,
-      offset: 50,
-      once: true
-    });
-  } catch (error) {
-    console.error('Error initializing AOS:', error);
-  }
-};
 
 /**
  * Initialize smooth scrolling for navigation links
@@ -61,7 +43,9 @@ const initSmoothScroll = () => {
   });
   
   // Highlight active section in navigation
-  if (sections.length > 0 && navLinks.length > 0) {
+  const trackedNavLinks = document.querySelectorAll('[data-nav-link]');
+
+  if (sections.length > 0 && trackedNavLinks.length > 0) {
     // Debounce function to limit scroll event processing
     const debounce = (func, wait = 100) => {
       let timeout;
@@ -80,10 +64,12 @@ const initSmoothScroll = () => {
         const sectionId = section.getAttribute('id');
         
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          navLinks.forEach(link => {
-            link.classList.remove('active');
+          trackedNavLinks.forEach(link => {
+            link.classList.remove('text-accent');
+            link.classList.add('text-ink');
             if (link.getAttribute('href') === '#' + sectionId) {
-              link.classList.add('active');
+              link.classList.add('text-accent');
+              link.classList.remove('text-ink');
             }
           });
         }
@@ -139,59 +125,6 @@ const initMobileMenu = () => {
         if (icon) {
           icon.classList.remove('fa-times');
           icon.classList.add('fa-bars');
-        }
-      });
-    });
-  }
-};
-
-/**
- * Add animation to details elements (accordion functionality)
- * Note: This is now handled by CSS, but we add click handlers for the plus/minus icons
- */
-const initDetailsAnimation = () => {
-  const detailsElements = document.querySelectorAll('details');
-  
-  detailsElements.forEach(details => {
-    const summary = details.querySelector('summary');
-    const icon = summary?.querySelector('i');
-    
-    if (summary && icon) {
-      // Update icon when details is toggled
-      details.addEventListener('toggle', () => {
-        if (details.open) {
-          icon.classList.add('rotate-45');
-        } else {
-          icon.classList.remove('rotate-45');
-        }
-      });
-    }
-  });
-};
-
-/**
- * Initialize accordion functionality for the services section
- */
-const initAccordion = () => {
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
-  
-  if (accordionHeaders.length > 0) {
-    accordionHeaders.forEach(header => {
-      header.addEventListener('click', () => {
-        const body = header.nextElementSibling;
-        const isActive = header.classList.contains('active');
-        
-        // Close all accordion items
-        document.querySelectorAll('.accordion-header').forEach(h => {
-          h.classList.remove('active');
-          const b = h.nextElementSibling;
-          if (b) b.style.maxHeight = null;
-        });
-        
-        // Open clicked item if it was closed
-        if (!isActive) {
-          header.classList.add('active');
-          if (body) body.style.maxHeight = body.scrollHeight + "px";
         }
       });
     });

@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@source "./**/*.{njk,html,js}";
+
+@theme {
+  --color-ink: #000000;
+  --color-ink-muted: #666666;
+  --color-ink-body: #333333;
+  --color-accent: #265214;
+  --color-accent-hover: #224712;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8f8f8;
+  --color-border: #eaeaea;
+
+  --font-sans: "Poppins", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal.reveal-slow {
+    transition-duration: 900ms;
+  }
+
+  .reveal.reveal-fast {
+    transition-duration: 500ms;
+  }
+}

@@ -62,7 +62,7 @@ This adds a nice space (1rem) below the paragraph.
 
 ## Important Notes
 
-- Don't modify the `styles.css` file unless you're familiar with CSS
+- Don't modify `src/styles.css` unless you're familiar with CSS
 - Keep the file structure as is
 - Make sure to always push your changes to GitHub for them to go live
 - The website will automatically update within a few minutes after pushing
@@ -73,6 +73,7 @@ If you need assistance with making changes or encounter any issues, please conta
 
 ## File Structure
 
-- `index.html` - Main content (this is the file you'll edit most often)
-- `styles.css` - Styling (avoid editing unless necessary)
-- `alena-todorov-life-coach-london.jpg` - Profile image
+- `src/index.njk` - Main content (this is the file you'll edit most often)
+- `src/styles.css` - Styling (avoid editing unless necessary)
+- `src/assets/alena-todorov-life-coach-london.jpg` - Profile image
+- `_site/` - Build output (generated)
